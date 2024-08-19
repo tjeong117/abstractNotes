@@ -190,4 +190,40 @@ WE say the relation R is
         \\ 
         conversely, if $(S_i)_{i \in I}$ is a partition of $S$ then there exists an equivalence relation $\sim$ on $S$ such that $S / \sim = (S_i)_{i \in I}$
     \end{theorem}
+    \begin{proof}
+        $\rightarrow$ we will first show that the set of equivalence classes is a partition, we already showed $[x] \cap [y] = \emptyset$ if $[x] \not = [y]$ so we need to show that $S = \bigcup_{x \in S} [x]$ \\
+        let $s \in S$ then $s \in [s]$ so $s \in \bigcup_{x \in S} [x]$ and so $S \subseteq \bigcup_{x \in S} [x]$ \\ 
+        For each $x \in S, [x] \subseteq S$ so $\bigcup_{x \in S} [x] \subseteq S$ and so $S = \bigcup_{x \in S} [x]$ \\
+        \\ $\leftarrow$ now suppose $(S_i)_{i \in I}$ is a partition of $S$. Define $x \sim y$ iff $x,y \in S_i$ for some $i$. We have $\sim$ is reflexive since each $x \in S_i$ for some $i \in I$. As $\bigcup_{i \in I} S_i = S$. 
+        \\ $\sim$ is symmetric since containm ent in a set have an order 
+        \\ $\sim$ is transitive since if $x,y \in S_i$ and $y,z \in S_j$ then $x,y,z \in S_i \cap S_j = \emptyset$ so $x \sim z$
+    \end{proof}
+    e.g. $S = \mathbb{Z}$, $\sim$ is $\equiv \mod n$
+    \\ $S / \sim = \{[0], [1], \dots, [n-1]\}$ is a partition of $\mathbb{Z}$
+    \begin{align}
+        [0] &= \{\dots, -2n, -n, 0, n, 2n, \dots\} \\ 
+        [1] &= \{\dots, -2n+1, -n+1, 1, n+1, 2n+1, \dots\} \\ 
+        &\vdots \\ 
+        [n-1] &= \{\dots, -2n + n-1, -n + n-1, n-1, 2n + n-1, \dots\}
+    \end{align}
+
+\section{Partial orders }
+\underline{notation:} when a relation $R$ is a partial order, we often denote it by $\leq$ \\
+e.g. $\leq$ is a partial order on $mathbbR$ \\
+Let $S$ be a set and $\mathbb{P}(s)$ its power set. $\leq$ is a partial order on $\mathbb{P}(S)$ \\ 
+ex: "Divides" is a partial order on $\mathbb{N}$ (but not on $\mathbb{Z}$)
+\begin{definition}[ minimal and first element ]
+    let $\leq$ be ap artial order on a set $S$. An element $s \in S$ is \underline{minimal} if $ x\leq s \rightarrow x = s \forall x \in S$. \\ 
+    An element $t \in S$ is called a \underline{first} element if $ t \leq x \forall x \in S$ .. (Warning: not every minimal element is a first element)
+\end{definition}
+    e.g. $S = \{ 2, 3, 4, 5, 6 \dots \}$ divides is a partial order on $S$ 
+    \\ 2 is a minimal element. 3 is a minimal element . 5 is a minimal element. every prime number is a minimal element  
+    But they are not  first elements 
+    \begin{proposition}
+        \begin{enumerate}
+            \item A first element is unique 
+            \item a first element is a minimal element 
+            \item a minimal element needs not to be a first element*** 
+        \end{enumerate}
+    \end{proposition}
 \end{document}

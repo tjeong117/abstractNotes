@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.31)  19 AUG 2024 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.31)  19 AUG 2024 16:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -651,23 +651,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--187
  []
 
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 189.
-[4] [5] (./lecture.aux)
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 194--200
+
+ []
+
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 223.
+[5] [6] (./lecture.aux)
 Package rerunfilecheck Info: File `lecture.out' has not changed.
-(rerunfilecheck)             Checksum: 088EED1C26D80ECD3944E8C4845AE8DC;338.
+(rerunfilecheck)             Checksum: CA18EAC1FCC5E71FE11DEB0BB493EE65;462.
  ) 
 Here is how much of TeX's memory you used:
- 21845 strings out of 478268
- 407628 string characters out of 5846347
- 698148 words of memory out of 5000000
- 39640 multiletter control sequences out of 15000+600000
+ 21862 strings out of 478268
+ 407869 string characters out of 5846347
+ 699148 words of memory out of 5000000
+ 39645 multiletter control sequences out of 15000+600000
  478076 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,6n,80p,467b,489s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,9n,80p,467b,489s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on lecture.pdf (5 pages, 141272 bytes).
+Output written on lecture.pdf (6 pages, 148431 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 
