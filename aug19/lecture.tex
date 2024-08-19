@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 1 }}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{Relations}
+    Let $S$ be s a set (e.g. $\mathbb{N } = \{1, 2, 3, \dots\}$), integers: $\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\}$ 
+    \\ 
+    rational numbers $\mathbb{Q}$  i should know these .. 
+ \\ 
+ \underline{RECALL}: cartesian product: $A$ x $B = \{(a,b)  | a \in A, b \in B\}$  \\ 
+ \begin{definition}
+    A \underline{relation} R on a set $S$ is a subset $R \subseteq S \times S$. we write $xRy$ (read "x is related to y") to denote an element $(x,y) \in R$
+
+ \end{definition} some examples of relations: "is orthogonal to" is a relation o the set of vectors in $\mathbb{R}^3$ \\ another example "is congruent to" is a relation on the set of polygons \\ 
+    "divides" is a relation on the set of integers
+
+WE say the relation R is 
+\begin{enumerate}
+    \item \underline{reflexive} if $xRx$ for all $x \in S$
+    \item \underline{symmetric} if $xRy$ implies $yRx$ for all $x,y \in S$
+    \item \underline{antisymmetric} if $xRy$ and $yRx$ implies $x=y$ for all $x,y \in S$
+    \item \underline{transitive} if $xRy$ and $yRz$ implies $xRz$ for all $x,y,z \in S$
+\end{enumerate} (sometimes we note $\sim$ for the relation R) \\
+ going back to examples: "is congruent to" is reflexive, symmetric, and transitive \\ 
+
+ \section{equivalence and partial order relations}
+ \begin{definition}
+    two very important types of relations are: 
+    \begin{enumerate}
+        \item \underline{equivalence relations} 
+            \begin{enumerate}
+                \item reflextive
+                \item symmetric
+                \item transitive
+            \end{enumerate}
+        \item \underline{partial order relations}
+            \begin{enumerate}
+                \item reflexive
+                \item \underline{antisymmetric}
+                \item transitive
+            \end{enumerate}
+    \end{enumerate}
+\end{definition}
+    e.g. $R = \{(a,b) | b-a \in \mathbb{N}\} \subseteq \mathbb{Z} \times \mathbb{Z}$ 
+    \\
+    is R an equivalence relation? a partial ordering ? 
+    \begin{enumerate}
+        \item reflexive: $aRa$? yes since $a - a = 0 \in \mathbb{N}$
+        \item antisymmetric: $aRb$ and $bRa$ implies $a=b$? if $aRb$ then $b-a \in \mathbb{N}$ and if $bRa$ then $a-b \in \mathbb{N}$ so $a$ and $b$ are the same
+        \item transitive: $aRb$ and $bRc$ implies $aRc$? if $aRb$ then $b-a \in \mathbb{N}$ and if $bRc$ then $c-b \in \mathbb{N}$ so $c-a = (c-b) + (b-a) \in \mathbb{N}$
+    \end{enumerate}
+    \underline{Exercise}: check that $aRb$ iff $a \leq b$ 
+
+
+    e.g. fix $n \in \mathbb{Z}^{+}$  $R = \{(a,b) | a -b \in n \mathbb{Z} \} \subseteq \mathbb{Z} \times \mathbb{Z} $ \\ 
+    \underline{Exercise} this is an equivalece relation 
+    \\ $aRb$ if $a- b = nk$ for some $k \in \mathbb{Z}$ \\ \underline{we call this relation congruence module n}
+
+     \underline{notation:}if $R$ is an equivalence relation, we often denote it by $\sim$ 
+
+    \begin{definition}[equivalence class]
+        If $\sim$ is an equivalene relation on $S$ we can fix and element $x \in S$ and consider all elements of $S$ that is equivalent to $x$: \\ 
+        $$[x] = \{s \in S| s \sim x\} \subseteq S$$ 
+        and x is a representative of this equivalence class
+    \end{definition} 
+    e.g. $S = \{a, b, c, d, e\}$ and $\sim = \{(a,a), (b,b), (c,c), (d,d), (e,e), (a,b), (b,a), (c,d), (d,c), (d,e), (e,d), (c,e), (e,c) \}$ \\
+    $[a] = \{a,b\} = [b] $  and 
+    $[c] = \{c,d,e\} = [d] = [e]$ \\  \\ 
+    Q: are equivalence classes always disjoint? \\ 
+    A: yes, if $[x] \cap [y] \neq \emptyset$ then $[x] = [y]$ \\
+    \begin{lemma}
+        Let $\sim$ be an equivalene relation on $S$ and $x,y \in S$. Then $[x] = [y]$ iff $x \sim y$
+    \end{lemma}
+    \begin{proof}[proof of lemma 2.1] 
+        iff \\ 
+        $\rightarrow$: supose $[x] = [y]$ then $x \in [x] $, since $\sim$ is reflexive and so $x \in [y]$ Thus, $x \sim y$
+        \\ 
+        $\leftarrow$: Let $s \in [x]$ since $x \sim x$ and $x \sim y$ (by assumption) then $s \sim y$ since it is transitive. hence $s \in [y]$ and so $[x] \subseteq [y]$
+        \\ similarly, if $s \in [y]$, then $s \sim y$ and $x \sim y$ so since $\sim$ is symmetric and trasnstiive $s \sim x$ and so $x in [x]$ hence $[y] \subseteq [x]$
+    \end{proof}
+
+    \underline{Corollary}: $$[x] \cap [y] = \emptyset \text{ if } [x] \not = [y]$$
+    \begin{proof}
+        suppose $[x] \cap [y] \neq \emptyset$ then there exists $s \in [x] \cap [y]$ then $s \sim x$ and $s \sim y$ by lemma 2.1 $x \sim y$ and so $[x] = [y]$
+    \end{proof}
+
+    \begin{definition}
+        a \underline{partition} on a set $S$ is a collection $(S_i)_{i \in I}$ of nonempty subsets of $S$ such that
+        \begin{enumerate}
+            \item $S = \bigcup_{i \in I} S_i$
+            \item $S_i \cap S_j = \emptyset$ for all $i,j \in I$ with $i \not = j$
+        \end{enumerate}
+    \end{definition}
+    e.g. $S = \{a,b,c,d,e\}$ and $S_1 = \{a,b\}$, $S_2 = \{c,d,e\}$ is a partition of $S$ \\
+
+    \begin{theorem}
+        Let $S$ be a set with an equivalece relation $\sim$: Then the set of equivalence classes $S / \sim = \{[x] | x \in S\}$ is a partition of $S$
+        \\ 
+        conversely, if $(S_i)_{i \in I}$ is a partition of $S$ then there exists an equivalence relation $\sim$ on $S$ such that $S / \sim = (S_i)_{i \in I}$
+    \end{theorem}
+\end{document}
