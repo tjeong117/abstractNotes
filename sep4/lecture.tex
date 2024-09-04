@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 5 }}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{Cosets}
+\begin{definition}
+    Let $H$ be a subgroup of $G$ and $g \in G$ then the subset $gH = \{gh | h \in H \}$ This is called the \underline{left coset} of $H$ containing $g$
+\end{definition}
+We de note the set of left cosets of$H$ by $G / H$  that means $G / H = \{gH |\forall  g \in G \}$
+\begin{definition}
+similarly we define the \underline{right coset} of $H$ containing $g$ as $Hg = \{hg | h \in H \}$
+\end{definition}
+
+Note if $G$ is abelian then $gH = Hg   \forall g \in G, H \subseteq G$ \\
+e.g. $G = (\mathbb{Z}, +)$ and $H = 3\mathbb{Z}$ we have
+\begin{enumerate}
+    \item $0 + 3\mathbb{Z}$
+    \item $1 + 3\mathbb{Z}$
+    \item $2 + 3\mathbb{Z}$
+    
+\end{enumerate} Then $G / H = \mathbb{Z} / 3\mathbb{Z} = \{0 + 3\mathbb{Z}, 1 + 3\mathbb{Z}, 2 + 3\mathbb{Z} \}$
+\\ 
+e.g. $G = \mathbb{Z} / 6\mathbb{Z}$ and $H = \{[0], [3] \}$ \\ 
+$[0] + H = \{[0], [3] \}$ , 
+\\ $[1] + H = \{[1], [4] \}$,  
+\\$[2] + H = \{[2], [5] \}$,  
+\\ $[3] + H = \{[0], [3] \}$, same thing \\  
+$[4] + H = \{[1], [4] \}$, same thing \\ 
+ $[5] + H = \{[2], [5] \}$ same thing \\ so 
+ $G / H = \{[0] + H, [1] + H, [2] + H \}$ (all the example is abelian group)  \\
+
+
+ 
+ now lets look at non abelian group $G = D_3$ then \\ $H = \{e, s_3\}$ 
+left cosets\\  $eH = \{e, s_3\} = s_3H$ \\ 
+$r_1H = \{r_1, s_2 \} = s_2H  $\\ 
+$r_2H = \{r_2, s_1 \}$ = $r_1H$ \\
+
+Right cosets \\ 
+$He = \{e, s_3\} = Hs_3$ \\ 
+$Hr_1 = \{r_1, s_2 \} = Hs_2$ \\
+$Hr_2 = \{r_2, s_1 \} = Hs_1$ \\
+\underline{NOTE:} $D_3/H = \{eH, r_1H, r_2H \} \neq H \backslash D_3 = \{He, Hr_1, Hr_2 \}$ 
+
+ \textbf{\textit{exercise}}: find a group $G$ and a subgroup $H$ such that $G / H = H \backslash G$
+
+ \begin{lemma}[2.2.6]
+    let $H$ be a subgroup of $G$ and $x,y \in G$; Then \begin{enumerate}
+        \item $x \in xH$ 
+        \item $xH = yH$ if and only if $x^{-1}y \in H$
+        \item $xH \cap yH \neq \emptyset$ if and only if $xH = yH$ (intersection empty if xH not equal yH)
+        \item The map $phi: H \rightarrow xH $ given by $\phi(h) = xh$ is a bijection
+    \end{enumerate}
+    \begin{proof} \leavevmode
+        \begin{enumerate}
+            \item $H$ is a subgroup so $e \in H$ and $x = xe$ so $x \in xH$ 
+            \item \begin{enumerate}
+                \item ($\rightarrow$) if $xH = yH$ then $ y\ in xH$ that is, for some $h \in H, y = xh$ So Then $x^{-1}y = h \in H$
+                \item ($\leftarrow$) if $x^{-1}y \in H$ then $y = x(x^{-1}y) \in xH$ so $yH \subseteq xH$ similarly $xH \subseteq yH$ so $xH = yH$
+            \end{enumerate}
+            \item Suppose $g \in xH \cap yH$ Then $g = xh_1 = yh_2$ for some $h_1, h_2 \in H$ so $x = yh_2h_1^{-1} \in yH$ so $xH \subseteq yH$ similarly $yH \subseteq xH$ so $xH = yH$
+            \item $\phi: H \rightarrow xH, \phi(h) = xh$ is a multiplication on G restriction to H so its a bijection. 
+        \end{enumerate}
+    \end{proof}
+ \end{lemma}
+ \underline{Observe} The set of cosets of a subgroup H forms a partition on G. Cor(2.27) Then $G = \bigcup_{g \in G} gH$ and $gH \cap g'H = \emptyset$ if $g \neq g'$
+
+ \begin{theorem}[lagrange] \leavevmode\\
+    If H is a subgroup of a finite group $G$ then $|G| = |G/H| |H|$ sometimes $|G /H| $ is notated with $[G:H]$ \\  in English, the order of a subgoroup divides the order of the group
+    \begin{proof} \leavevmode
+        let $gH \in G / H$ by the lemma 2.2.6 there is a bijection $\phi: H \rightarrow gH, \phi(h) = gh$ so $|H| = |gH|$ \\ 
+        Sicne the set of left cosets of H forms a partition of G, and also each coset has the same number of elements, we have $|G| = |G/H| |H|$
+
+
+
+    \end{proof}
+\end{theorem}
+
+\begin{definition}[2.2.9] \leavevmode \\ 
+The numnber of cosets $|G/H|$ is called the index of $H$ in $G$ and is denoted by $[G:H]$    
+\end{definition}
+
+Examples:  Consider $2\mathbb{Z} $ as a subgroup of $\mathbb{Z}$ then $|\mathbb{Z}| = 2 |2\mathbb{Z}|$ so $|\mathbb{Z} / 2\mathbb{Z}| = 2$ so $[\mathbb{Z}: 2\mathbb{Z}] = 2$ \\ generalizing this consider $n\mathbb{Z}$ as a subgroup of $\mathbb{Z}$ then $[\mathbb{Z}: n\mathbb{Z}] = n$ \\ 
+
+
+Very important questions :When does $G/H$ form a group ??? (ex $G = \mathbb{Z}$ and     $H = n\mathbb{Z}$) \\
+
+Given $X, Y \subseteq G$ defin $XY = \{xy | x \in X, y \in Y \}$ \\ and given left cosets $xH$ and $gH$ is $(xH)(gH) = (xg)H$ ? \\ Consider $H = \{e, s_3\}$ in $D_3$ then $r_1H = \{r_1, s_2\}$ and $s_2H = \{s_2, r_1\}$ so $(r_1H)(s_2H) = \{r_1s_2, r_1r_1, s_2s_2, s_2r_1\} = \{s_1, e, e, s_2\} = \{s_1, e, s_2\}$ but $(r_1s_2)H = \{r_1s_2, s_2s_2\} = \{s_1, e\}$ so $(r_1H)(s_2H) \neq (r_1s_2)H$ (DOESNT EVEN HAVE THE RIGHT NUMBER OF ELEMTNS LOL)\\ 
+\begin{proposition}[2.3.1]
+    Let H be a subgroup of $G$ If $gH = Hg \forall g \in G$ then $G/H$ is a group under the operation $(gH)(g'H) = (gg')H$ 
+    \begin{proof}\leavevmode \\ 
+        \begin{enumerate}
+            \item $ (xy)H \subseteq (xH)(yH) $ then $xyh = xeyh \in (xH)(yH)$
+            \item $(xH)(yH) \subseteq (xy)H$ then $xyh = x(yh) \in (xy)H$
+        \end{enumerate}
+        
+    \end{proof}
+\end{proposition}
+\begin{definition}
+    A subgroup $N$ of a group $G$ is called \underline{normal} if $gNg^{-1} =  \{ gng^{-1} | n \in N \} = N \forall g \in G$ 
+\end{definition}
+\underline{ Notice} if $G$ is abelian,$gNg^{-1} = gg^{-1}N = N$ so all subgroups of an abelian group are normal. \\  If $N$ is a normal subgroup of $G$ then we write $N \trianglelefteq G$ \\
+
+\underline{exercise} $N \trianglelefteq G $ iff $gN = Ng \forall g \in G$ \\
+ex: $H = \{e, s_3\}$ in $D_3$ is NOT normal. $r_1H = \{r_1, s_2\}$ but $s_2H = \{s_2, r_1\}$ so $r_1H \neq s_2H$ so $H$ is not normal. \\
+
+
+\end{document}
+ 
