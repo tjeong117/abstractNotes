@@ -1,0 +1,220 @@
+\documentclass[10pt,twoside]{article}
+
+\usepackage{amssymb,amsmath,amsthm,amsfonts, epsfig, graphicx, dsfont,
+  bbm, bbold, url, color, setspace, multirow,pinlabel}
+\usepackage[all]{xy}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+
+\usepackage{fancyhdr} \setlength{\voffset}{-1in}
+\setlength{\topmargin}{0in} \setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in} \setlength{\hoffset}{0in}
+\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
+\setlength{\marginparsep}{0in} \setlength{\marginparwidth}{0in}
+\setlength{\headsep}{0.25in} \setlength{\headheight}{0.5in}
+\pagestyle{fancy}
+
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\Z{\mathbb{Z}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+\declaretheoremstyle[name=Solution,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{solution}
+\tcolorboxenvironment{solution}{colback=LightBlue}
+
+\fancyhead[LO,LE]{Math 4107 - Hom} \fancyhead[RO,RE]{Due 9/6/24 at 5 pm}
+\chead{\textbf{}} \cfoot{}
+\fancyfoot[LO,LE]{} \fancyfoot[RO,RE]{Page \thepage\ of
+  \pageref{LastPage}} \renewcommand{\footrulewidth}{0.5pt}
+\parindent 0in
+%% ------------------------------------------------------%%
+%% -------------------Begin Document---------------------%%
+%% ------------------------------------------------------%%
+
+\begin{document}
+
+\begin{center}
+\huge{\bf{Homework 3}}
+\end{center}
+
+I encourage you to work on the assignment with other students; remember to name anyone you collaborate with and to write up your final solutions by yourself.\\
+
+\begin{itemize}
+	\item Lauritzen Chapter 2, Exercises 2, 4, 5, 9, 10
+	\item Problems not from the textbook
+  	\begin{enumerate}
+		\item Prove or disprove that the following are groups:
+		 \begin{enumerate}
+		 	\item even integers under addition
+		 	\begin{solution}
+                Let $G$ be the set of even integers under addition. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $a, b \in G$. Then $a = 2m$ and $b = 2n$ for some integers $m$ and $n$. Then $a + b = 2m + 2n = 2(m + n)$, which is even. Thus, $a + b \in G$. \\
+                \textbf{Associativity:} Addition of integers is associative, so this holds. \\
+                \textbf{Identity:} The identity element is 0, which is even. \\
+                \textbf{Inverse:} Let $a \in G$. Then $a = 2m$ for some integer $m$. Then $-a = -2m = 2(-m)$, which is even. Thus, $-a \in G$. \\
+                Thus, $G$ is a group.
+
+            \end{solution}
+			\item odd integers under addition
+			\begin{solution}
+                Let $G$ be the set of odd integers under addition. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $a, b \in G$. Then $a = 2m + 1$ and $b = 2n + 1$ for some integers $m$ and $n$. Then $a + b = 2m + 1 + 2n + 1 = 2(m + n) + 2 = 2(m + n + 1)$, which is even. Thus, $a + b \notin G$. \\
+                Thus, $G$ is not a group.
+                
+            \end{solution}
+			\item $\{ 3^n : n \in \Z \}$ under multiplication.
+			\begin{solution}
+                Let $G = \{ 3^n : n \in \Z \}$ under multiplication. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $a, b \in G$. Then $a = 3^m$ and $b = 3^n$ for some integers $m$ and $n$. Then $a \cdot b = 3^m \cdot 3^n = 3^{m + n}$, which is in $G$. Thus, $a \cdot b \in G$. \\
+                \textbf{Associativity:} Multiplication of integers is associative, so this holds. \\
+                \textbf{Identity:} The identity element is 1, which is in $G$. \\
+                \textbf{Inverse:} Let $a \in G$. Then $a = 3^m$ for some integer $m$. Then $a^{-1} = 3^{-m} = \frac{1}{3^m}$, which is in $G$. \\
+                Thus, $G$ is a group.
+
+            \end{solution}
+		 \end{enumerate}		
+ 		 \item Matrix groups are an extremely important class of groups. Assume all matrices in the following statements have entries in $\R$, though it is fun to think about the same questions for matrices with entries in $\Z$ or $\C$! It is also fun to think about the same questions for $n \times n$ matrices. You may assume that matrix addition and matrix multiplication are associative. Prove or disprove that the following are groups:
+		 \begin{enumerate}
+		 	\item $2 \times 2$ diagonal matrices under matrix addition
+		 	\begin{solution}
+                Let $G$ be the set of $2 \times 2$ diagonal matrices under matrix addition. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $A, B \in G$. Then $A = \begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix}$ and $B = \begin{pmatrix} c & 0 \\ 0 & d \end{pmatrix}$ for some real numbers $a, b, c, d$. Then $A + B = \begin{pmatrix} a + c & 0 \\ 0 & b + d \end{pmatrix}$, which is in $G$. Thus, $A + B \in G$. \\
+                \textbf{Associativity:} Matrix addition is associative, so this holds. \\
+                \textbf{Identity:} The identity element is the $2 \times 2$ zero matrix, which is in $G$. \\
+                \textbf{Inverse:} Let $A \in G$. Then $A = \begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix}$ for some real numbers $a, b$. Then $-A = \begin{pmatrix} -a & 0 \\ 0 & -b \end{pmatrix}$, which is in $G$. \\
+                Thus, $G$ is a group.
+            \end{solution}
+			\item $2 \times 2$ matrices with determinant 1 under matrix addition
+			\begin{solution}
+                Let $G$ be the set of $2 \times 2$ matrices with determinant 1 under matrix addition. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $A, B \in G$. Then $\det(A) = 1$ and $\det(B) = 1$. Then $\det(A + B) = \det(A) + \det(B) = 1 + 1 = 2 \neq 1$. Thus, $A + B \notin G$. \\
+                Thus, $G$ is not a group.
+
+            \end{solution}
+			\item $2 \times 2$ matrices with determinant 1 under matrix multiplication
+			\begin{solution}
+                Let $G$ be the set of $2 \times 2$ matrices with determinant 1 under matrix multiplication. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $A, B \in G$. Then $\det(A) = 1$ and $\det(B) = 1$. Then $\det(A \cdot B) = \det(A) \cdot \det(B) = 1 \cdot 1 = 1$. Thus, $A \cdot B \in G$. \\
+                \textbf{Associativity:} Matrix multiplication is associative, so this holds. \\
+                \textbf{Identity:} The identity element is the $2 \times 2$ identity matrix, which is in $G$. \\
+                \textbf{Inverse:} Let $A \in G$. Then $\det(A) = 1$. Then $A^{-1} = \frac{1}{\det(A)} \cdot \text{adj}(A)$, which is in $G$. \\
+                Thus, $G$ is a group.
+            \end{solution}
+			\item $2 \times 2$ matrices with trace 0 under matrix addition
+			\begin{solution}
+                Let $G$ be the set of $2 \times 2$ matrices with trace 0 under matrix addition. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $A, B \in G$. Then $\text{tr}(A) = 0$ and $\text{tr}(B) = 0$. Then $\text{tr}(A + B) = \text{tr}(A) + \text{tr}(B) = 0 + 0 = 0$. Thus, $A + B \in G$. \\
+                \textbf{Associativity:} Matrix addition is associative, so this holds. \\
+                \textbf{Identity:} The identity element is the $2 \times 2$ zero matrix, which is in $G$. \\
+                \textbf{Inverse:} Let $A \in G$. Then $\text{tr}(A) = 0$. Then $-A = \begin{pmatrix} -a & -b \\ -c & -d \end{pmatrix}$, which is in $G$. \\
+                Thus, $G$ is a group.
+            \end{solution}
+			\item $2 \times 2$ symmetric matrices (recall that a matrix $A$ is symmetric if $A = A^T$) with nonzero determinant under matrix multiplication
+			\begin{solution}
+                Let $G$ be the set of $2 \times 2$ symmetric matrices with nonzero determinant under matrix multiplication. We need to check the group axioms: \\ 
+                \textbf{Closure:} Let $A, B \in G$. Then $A = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ and $B = \begin{pmatrix} d & e \\ e & f \end{pmatrix}$ for some real numbers $a, b, c, d, e, f$. Then $A \cdot B = \begin{pmatrix} ad + be & ae + bf \\ bd + ce & be + cf \end{pmatrix}$, which is in $G$. Thus, $A \cdot B \in G$. \\
+                \textbf{Associativity:} Matrix multiplication is associative, so this holds. \\
+                \textbf{Identity:} The identity element is the $2 \times 2$ identity matrix, which is in $G$. \\
+                \textbf{Inverse:} Let $A \in G$. Then $\det(A) \neq 0$. Then $A^{-1} = \frac{1}{\det(A)} \cdot \text{adj}(A)$, which is in $G$. \\
+                Thus, $G$ is a group.
+            \end{solution}
+			\item $2 \times 2$ orthogonal matrices (recall that a matrix $A$ is orthogonal if $A A^T = I$, where $I$ is the identity matrix) under matrix multplication.
+			\begin{solution}
+                Let $G$ be the set of $2 \times 2$ orthogonal matrices under matrix multiplication. We need to check the group axioms: \\
+                \textbf{Closure:} Let $A, B \in G$. Then $A A^T = I$ and $B B^T = I$. Then $(A \cdot B) (A \cdot B)^T = A B B^T A^T = A I A^T = A A^T = I$. Thus, $A \cdot B \in G$. \\
+                \textbf{Associativity:} Matrix multiplication is associative, so this holds. \\
+                \textbf{Identity:} The identity element is the $2 \times 2$ identity matrix, which is in $G$. \\
+                \textbf{Inverse:} Let $A \in G$. Then $A A^T = I$. Then $A^{-1} = A^T$, which is in $G$. \\
+                Thus, $G$ is a group.
+            \end{solution}
+		 \end{enumerate}
+		\item Recall Euler's formula $e^{i \theta} = \cos \theta + i \sin \theta$. Let $n$ be a positive integer. The complex equation
+		\[ z^n = 1\]
+		can then be written as $e^{ni \theta} = \cos (n \theta) + \sin (n \theta) = 1$. Notice this has solutions of the form $\theta = \frac{2k \pi}{n}$ where $k \in \Z$. Thus, we see the equation $z^n =1$ has $n$ distinct solutions, 
+		\[ z_k = e^{\frac{2k i \pi}{n}} = \cos \Big(\frac{2k \pi}{n}\Big) + i \sin \Big(\frac{2k \pi}{n}\Big), \]
+where $0 \leq k < n$. These are called the $n^{\textup{th}}$ roots of unity. Prove that the set of $n^{\textup{th}}$ roots of unity under the operation of complex multiplication forms a group. You may assume that complex multiplication is associated. Sketch the $n^{\textup{th}}$ roots of unity in the complex plane for $n=2, 3, 4$.
+	
+   
+       \textbf{Proof:}
+Let \( G_n = \left\{ z_k = e^{\frac{2k\pi i}{n}} : 0 \leq k < n \right\} \) be the set of \( n^{\text{th}} \) roots of unity. We need to prove that \( (G_n, \cdot) \) is a group, where \( \cdot \) denotes complex multiplication.
+
+\begin{enumerate}
+\item \textbf{Closure:} For any \( z_j, z_k \in G_n \), we need to show that \( z_j \cdot z_k \in G_n \).
+\begin{align*}
+z_j \cdot z_k &= e^{\frac{2j\pi i}{n}} \cdot e^{\frac{2k\pi i}{n}} \\
+&= e^{\frac{2(j+k)\pi i}{n}} \\
+&= e^{\frac{2m\pi i}{n}}, \text{ where } m = (j+k) \mod n
+\end{align*}
+Since \( 0 \leq m < n \), \( z_j \cdot z_k \in G_n \).
+
+\item \textbf{Associativity:} This is given in the problem statement.
+
+\item \textbf{Identity Element:} The identity element is \( e^0 = 1 \), which is in \( G_n \) (it's \( z_0 \)). For any \( z_k \in G_n \):
+\[
+z_k \cdot 1 = 1 \cdot z_k = z_k.
+\]
+
+\item \textbf{Inverse Element:} For any \( z_k \in G_n \), its inverse is \( z_{n-k} \) (or \( z_0 \) if \( k=0 \)).
+\begin{align*}
+z_k \cdot z_{n-k} &= e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2(n-k)\pi i}{n}} \\
+&= e^{\frac{2n\pi i}{n}} \\
+&= e^{2\pi i} = 1.
+\end{align*}
+
+\end{enumerate}
+
+Therefore, \( (G_n, \cdot) \) is a group.
+
+\textbf{Sketches of \( n^{\text{th}} \) Roots of Unity:}
+
+For \( n=2 \) (Square roots of unity):
+\begin{tikzpicture}
+\draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
+\draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+\fill (1,0) circle (2pt) node[above right] {1};
+\fill (-1,0) circle (2pt) node[above left] {-1};
+\end{tikzpicture}
+
+For \( n=3 \) (Cube roots of unity):
+\begin{tikzpicture}
+\draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
+\draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+\fill (1,0) circle (2pt) node[right] {1};
+\fill (-0.5,0.866) circle (2pt) node[above left] {$e^{2\pi i/3}$};
+\fill (-0.5,-0.866) circle (2pt) node[below left] {$e^{4\pi i/3}$};
+\end{tikzpicture}
+
+For \( n=4 \) (Fourth roots of unity):
+\begin{tikzpicture}
+\draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
+\draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+\fill (1,0) circle (2pt) node[right] {1};
+\fill (0,1) circle (2pt) node[above] {$i$};
+\fill (-1,0) circle (2pt) node[left] {-1};
+\fill (0,-1) circle (2pt) node[below] {$-i$};
+\end{tikzpicture}
+   
+
+\end{enumerate}
+\end{itemize}
+
+
+\label{LastPage}
+\end{document}
