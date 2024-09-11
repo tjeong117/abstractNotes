@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{multirow}
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 7 sep 11}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{Bijective homomorphism}
+A Bijective homomorphism is called an isomorphism. 
+
+\begin{proposition}[2.4.9] \leavevmode \\ 
+    Let $f: G \rightarrow K$ be a group homomorphism. \begin{enumerate}
+        \item the image $Im f \subseteq K $ is a subgroup of $K$. 
+        \item The kernel $Ker f \subseteq G$ is a normal subgroup of $G$.
+        \item $f$ is injective if and only if $Ker f = \{e\}$
+    \end{enumerate}
+\end{proposition}
+Proof continutes. \\ 
+2. \underline{Normality}
+ Let $N = Ker f $ for every $g\ in G$ and $n \in N$, $gng^{-1} \in N$.
+ \begin{align}
+    f(gng^{-1}) &= f(g)f(n)f(g)^{-1} \\
+    &= f(g)f(g)^{-1} \\ 
+    &= e \\ 
+    &\text{so } \\ 
+    gng^{-1} &\in Ker f = N \forall g \in G, n \in N \\ 
+    \text{Hence } gNg^{-1} &\subseteq N \text{ }\forall g \in G 
+ \end{align}
+3. $\rightarrow$ Since $f(e_G) = e_K$ and f is injective. $ker f= \{e_G\}$ \\
+$\leftarrow$ Suppose $ker f = \{e_G\}$ and $f(g) = f(h)$ then $f(gh^{-1}) = f(g)f(h)^{-1} = e$ so $gh^{-1} \in ker f = \{e_G\}$ so $g = h$ so $f$ is injective.
+
+
+\begin{theorem}[2.5.1 Isomorphism Theorem] \leavevmode\\ 
+    Leg $G $ and $K$ be groups and $f: G \rightarrow K$ a homomorphism with the kernel $Ker f = N$, then $\tilde{f}: G /N \rightarrow f(G)$  given by $\tilde{f}(gN) = f(g)$ is well defined and a group isomorphism. 
+\end{theorem}
+\begin{proof}
+    Notice that $f(x) = f(y) \iff f(y)^{-1} f(x) = e_K \iff f(y^{-1}x) = e_K \iff y^{-1}x \in N \iff xN = yN$ so $\tilde{f}$ is well defined. \\
+   \\ Recall lemma 2.2.6 -ii that $y^{-1}x \in N \iff xN = yN$ so $\tilde{f}$. Hence $$f(x) = f(y) \iff xN = yN$$ \\ 
+   $\rightarrow$ gives that $\tilde{f}$ is injective. \\
+   $\leftarrow$ give that well defined
+   \end{proof}
+
+\begin{proposition}[2.4.9] \leavevmode \\ 
+    states that $Ker f = N$ is normal so $\tilde{f}$ is a homomorphism since $\tilde{f}((g_1N)( g_2N)) = \tilde{f}(g_1 g_2 N) = f(g_1 g_2) = f(g_1) f(g_2) = \tilde{f}(g_1 N) \tilde{f}(g_2 N)$ \\ 
+    Now $\tilde{f}$ is surjective because $f$ is surjective onto $f(G)$ so $\tilde{f}$ is an isomorphism. 
+    
+\end{proposition}
+ \end{document}
+ 
