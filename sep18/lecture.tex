@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{multirow}
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 9 sep 18}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{Order of Element}
+\begin{proposition}
+    let $G$ be a cyclic group 
+    \begin{enumerate}
+        \item every subgroup of $G$ is cyclic
+        \item suppose $G$ is finite and $d$ is a divisor of $|G|$, then there is a unique subgroup of $G$ of order $d$
+        \item there are $\phi(d)$ elements of order d in $G$ These are exactly the generators of the unique subgroup of order $d$
+        
+    \end{enumerate}
+\end{proposition}
+
+
+Corollary 2.7.6 
+lLet $N$ be a positive integer. Then $$\sum_{d|N}^{}\phi(d) = N$$ where the summ is over all divisors $d \in div(N)$
+\begin{proof}
+    \leavevmode\\
+    let $G = \mathbb{Z} / N\mathbb{Z}$ 
+
+    $N = \sum_{g \in G}^{} 1 = \sum_{d|N}^{} \underbrace{\sum_{g \in G}^{} 1}_{\phi(d)} = \sum_{d|N}^{}\phi(d) $
+\end{proof}
+
+\begin{theorem}[EUler 1.7.2]
+    Let $a, n \in \mathbb{Z} $ be relatively prime and $n \in \mathbb{N}$ then $$a^{\phi(n) } \equiv 1 \text{ (mod n)}$$
+    
+\end{theorem}
+
+\begin{proof} \leavevmode \\ 
+    Let $G \mathbb{Z} / n\mathbb{Z} *$ Then $|G| = \phi(n)$  \\ 
+    Since $gcd(a,n) = 1$ we have $[a] \in G$ \\ 
+    By Proposition 2.6.3, $[1] = [a]^{|G|} = [a]^{\phi(n)}$ so $a^{\phi(n)} \equiv 1 \text{ (mod n)}$ 
+    
+\end{proof}
+Take away: grousp can be a poweful tool for studying things that dont immediately seem to be about groups.
+\begin{definition}
+    \leavevmode \\ 
+Let $G_1, G_2, \dots, G_n$ be a group; The \underline{Product} of $G_1, G_2, \dots, G_n$ is the group $G  = G_1 \times G_2 \times \dots \times G_n = \{(g_1, g_2, \dots, g_n) | g_i \in G_i \}$ with the composition law $(g_1, g_2, \dots, g_n) \cdot (h_1, h_2, \dots, h_n) = (g_1h_1, g_2h_2, \dots, g_nh_n)$
+
+
+\end{definition}
+\underline{exercise} the composition is associative. 
+identity: $(e_1, e_2, \dots, e_n)$
+inverse: $(g_1, g_2, \dots, g_n)^{-1} = (g_1^{-1}, g_2^{-1}, \dots, g_n^{-1})$ \\ 
+ex: $\mathbb{Z} / 2\mathbb{Z} \times \mathbb{Z} / 2\mathbb{Z} = \{(0,0), (0,1), (1,0), (1,1)\}$  \\ 
+
+
+$\mathbb{Z} / 2\mathbb{Z} \times \mathbb{Z} / 2\mathbb{Z}  \not \cong \mathbb{Z} / 4\mathbb{Z}$  since every element in the lhs has order 2. 
+\underline{NOte: } if we have isomorphism $\phi_i: H \rightarrow G_i$ then we have an isomorphism $\phi: H \rightarrow G_1 \times G_2 \times \dots \times G_n$ given by $\phi(h) = (\phi_1(h), \phi_2(h), \dots, \phi_n(h))$ \\ 
+
+\begin{lemma}[cor 1.5.11 ii ]\leavevmode \\ 
+    If $a, b, c \in \mathbb{Z}$ and $gcd(a,b) = 1$ and $a | bc$ then $a | c$
+ \end{lemma}
+ \begin{proposition}[2.8.2]
+    \leavevmode \\ 
+    let $n_1, n_2, \dots, n_r \in \mathbb{Z} $ be pairwise relatively prime integers and let $N = n_1n_2 \dots n_r$ then for any $a_1, a_2, \dots, a_r \in \mathbb{Z}$ we have the system of congruences
+    
+ \end{proposition}
+ if $\phi_i$ denotes the canonical hommomorphism $\phi_i: \mathbb{Z} \rightarrow \mathbb{Z} / n_i\mathbb{Z}$  with $\phi_i(x) = [x]$ then the map $$\tilde{\phi}:\mathbb{Z} / N\mathbb{Z} \rightarrow \mathbb{Z} / n_1 \mathbb{Z} \times \mathbb{Z} / n_2 \mathbb{Z} \times \dots \times \mathbb{Z} / n_r \mathbb{Z}$$ given by $\tilde{\phi}([x]) = ([x], [x], \dots, [x])$ is an isomorphism.
+
+\begin{proof}
+    claim Ker $\tilde{\phi} = N\mathbb{Z}$ 
+\[
+x \in N \mathbb{Z} \iff x \equiv 0 \text{ (mod } n_i\text{) for all } i \iff [x] = ([0], [0], \dots, [0]) \iff \tilde{\phi}([x]) = ([0], [0], \dots, [0]) 
+\]
+\[
+\text{Thus, } \text{Ker } \tilde{\phi} = N \mathbb{Z} 
+\]
+\[
+\text{By the Isomorphism Theorem, } \tilde{\phi} \text{ is an isomorphism.}
+\]
+\end{proof}
+We'll state a big theorem about certain abelian groups .
+
+\begin{definition}
+Let $G$ be a group hand let $a_i \in G$ for $ i \in I$ The smallest subgroup of G containing $\{a_i | i \in I\} $ is the subgroup generated by $\{a_i | i \in I\}$ and is denoted $\{ a_i | i \in I \}$
+If this subgroup is all of $G$ then we say that $G$ is generated by $\{a_i | i \in I\}$ 
+If there is a finite set $\{a_i | i \in I\} $ that generates $G$ then we say that $G$ is finitely generated.
+\
+\end{definition}
+\begin{theorem}
+    If $G$ is a group and $a_i \in G$ for $i \in I$ then the subgorup $H$ generated by $\{a_i | i \in I \}$ has elements precisely these leements that are finite products of integral powers of $a_i$ wheere powers of a fixed $a_i$ may occur several times in the product. 
+
+
+    
+\end{theorem}
+ex. $D_3$ is finitely gneeratedby $r_1, s_1$. ex. $\mathbb{Z}$ is generated by 1.
+ex $\mathbb{Z} \times \mathbb{Z}$
+
+
+\begin{theorem}[fundamental Theorem of Fintely Generated Abelian groups] \leavevmode \\ 
+    every finitely generated abelian group is isomorphic to a direct product of cyclic groups in the form $$\mathbb{Z}^{n_1} \times \mathbb{Z} / n_2 \mathbb{Z} \times \dots \times \mathbb{Z} / n_r \mathbb{Z}$$ where $n_1, n_2, \dots, n_r \in \mathbb{N}$ and $n_1 | n_2 | \dots | n_r$
+    Where the $p_i's$ are prime not necessarily distinct and $r_i$  are positive integers the direct product is unique up to recordings the factors. 
+\end{theorem}
+ \end{document}
+ 
