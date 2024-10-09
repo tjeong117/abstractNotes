@@ -1,0 +1,404 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+%%Lauritzen Chapter 2: 11, 12, 13, 15, 16, 17, 18
+
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section*{11}
+Why are $\{[0]\}$ and $\mathbb{Z}/7\mathbb{Z}$ the only subgroups of $\mathbb{Z}/7\mathbb{Z}$?
+\begin{proof}
+    Let $G = \mathbb{Z}/7\mathbb{Z}$. We know that $G$ is cyclic, so it has a unique subgroup of order $d$ for each $d$ dividing $7$. Since $7$ is prime, the only divisors of $7$ are $1$ and $7$. Thus, the only subgroups of $G$ are $\{[0]\}$ and $G$.
+\end{proof}
+\section*{12}
+Show that a group $G$ is not the union of two proper subgroups $H_1, H_2 \subset G$. Can a group be the union of three proper subgroups?
+\begin{proof}
+    
+Assume for contradiction that \( G = H_1 \cup H_2 \), where \( H_1 \) and \( H_2 \) are proper subgroups of \( G \). 
+
+Since \( H_1 \) and \( H_2 \) are proper subgroups, \( H_1 \neq G \) and \( H_2 \neq G \). Let \( H_1 \cap H_2 = K \). Then \( K \) is a subgroup of both \( H_1 \) and \( H_2 \). 
+
+Since \( H_1 \cup H_2 = G \), every element of \( G \) is in either \( H_1 \) or \( H_2 \). 
+
+Consider an element \( g \in G \). If \( g \in H_1 \cap H_2 \), then \( g \in H_1 \) and \( g \in H_2 \). 
+
+If \( H_1 \cap H_2 \) is non-trivial, then it is a proper subgroup of \( G \) because \( H_1 \) and \( H_2 \) are proper. For \( g \in H_1 \setminus (H_1 \cap H_2) \) and \( g \in H_2 \setminus (H_1 \cap H_2) \), \( g \) cannot be fully covered by the union \( H_1 \cup H_2 \) unless one of the subgroups is \( G \), which contradicts \( H_1 \) and \( H_2 \) being proper. 
+
+Thus, \( G \) cannot be the union of two proper subgroups.
+
+\leavevmode \\ 
+
+Consider the symmetric group \( S_4 \). We can show that \( S_4 \) is the union of three proper subgroups. Specifically, let:
+
+\begin{itemize}
+    \item \( H_1 = \{ e, (12)(34), (13)(24), (14)(23) \} \) (the Klein four-group),
+    \item \( H_2 = \langle (12), (13), (23) \rangle \) (the alternating group \( A_4 \)),
+    \item \( H_3 = \langle (12), (14), (23) \rangle \) (another subgroup of \( S_4 \)).
+\end{itemize}
+
+We need to verify that \( H_1 \cup H_2 \cup H_3 = S_4 \). 
+
+- \( H_1 \) is of order 4.
+- \( H_2 \) and \( H_3 \) are both of order 12.
+
+The union of these three subgroups covers all elements of \( S_4 \), showing that \( S_4 \) can indeed be expressed as the union of three proper subgroups.
+
+\end{proof}
+
+
+\section*{13}
+Let $N$ be a normal subgroup of a group $G$. Prove that $gN = Ng$ for every $g \in G$.
+\begin{proof}
+    Let \( g \in G \) and let \( x \in gN \). By definition of the coset \( gN \), there exists some \( n \in N \) such that
+    \[
+    x = gn.
+    \]
+    We want to show that \( x \in Ng \). Since \( n \in N \) and \( N \) is normal in \( G \), \( g^{-1}ng \in N \). Thus,
+    \[
+    g^{-1} x g = g^{-1} (gn) g = n.
+    \]
+    Since \( n \in N \) and \( N \) is normal in \( G \), \( n \in Ng \) because \( Ng \) is the set of all elements of the form \( ng \) where \( n \in N \). Therefore, \( x = gn \in Ng \).
+    
+    Thus, \( gN \subseteq Ng \).
+    
+\leavevmode \\     
+    Let \( g \in G \) and let \( x \in Ng \). By definition of the coset \( Ng \), there exists some \( n \in N \) such that
+    \[
+    x = ng.
+    \]
+    We want to show that \( x \in gN \). Consider the element
+    \[
+    g^{-1} x = g^{-1} (ng) = (g^{-1}n g).
+    \]
+    Since \( N \) is normal in \( G \), \( g^{-1}n g \in N \). Thus,
+    \[
+    x = ng = g(g^{-1}n g) \in gN.
+    \]
+    Therefore, \( x \in gN \).
+    
+    Thus, \( Ng \subseteq gN \).
+    
+    Combining the results of both steps, we have
+    \[
+    gN = Ng
+    \]
+    for every \( g \in G \).\end{proof}
+
+
+\section*{15}
+Let $H$ be a subgroup of the group $G$.
+\begin{enumerate}
+    \item[(i)] Show that $H$ is a right coset and that distinct right cosets of $H$ are disjoint.
+    \item[(ii)] Show that the map $\phi: G/H \to H\backslash G$ given by $\phi(gH) = Hg^{-1}$ is well defined. Prove also that it is bijective.
+    \item[(iii)] Prove that if $H$ has index 2 in $G$ (i.e., $|G/H| = 2$), then $H$ is normal. Give an example of a subgroup of index 3 that is not normal.
+\end{enumerate}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] 
+        \textbf{Right Cosets:}
+        
+        A right coset of \( H \) in \( G \) is of the form \( H g \) where \( g \in G \). We need to show that distinct right cosets are disjoint. 
+    
+        Suppose \( H g_1 \cap H g_2 \neq \emptyset \). Then there exists \( x \) such that
+        \[
+        x = h_1 g_1 = h_2 g_2
+        \]
+        for some \( h_1, h_2 \in H \). Thus,
+        \[
+        h_1 g_1 g_2^{-1} = h_2
+        \]
+        implies
+        \[
+        g_1 g_2^{-1} \in H \text{ and } H g_1 = H g_2.
+        \]
+        Therefore, distinct right cosets are disjoint.
+    
+        \item[(ii)] 
+        \textbf{Map \( \phi \):}
+        
+        Define \( \phi: G/H \to H \backslash G \) by \( \phi(gH) = H g^{-1} \).
+    
+        - \textit{Well-defined:} If \( gH = g'H \), then \( g' = gh \) for some \( h \in H \). Thus,
+        \[
+        H g'^{-1} = H (h^{-1} g^{-1}) = H g^{-1}.
+        \]
+        
+        - \textit{Bijective:} 
+          - \textit{Injective:} If \( \phi(gH) = \phi(g'H) \), then \( H g^{-1} = H g'^{-1} \), implying \( gH = g'H \).
+          - \textit{Surjective:} For any \( K \in H \backslash G \), \( K = H g^{-1} \) for some \( g \in G \), so every element of \( H \backslash G \) is covered by \( \phi \).
+    
+        \item[(iii)] 
+        \textbf{Index 2 Subgroup:}
+        
+        If \( H \) has index 2 in \( G \), then \( |G/H| = 2 \). There are exactly two cosets: \( H \) and \( gH \). Since there are only two cosets, \( H \) is normal in \( G \) because \( g H g^{-1} \) must be \( H \).
+    
+        \textbf{Example of Subgroup of Index 3 Not Normal:}
+        
+        In \( S_4 \), consider \( H = \langle (123) \rangle \), a subgroup of index 3. This subgroup is not normal in \( S_4 \) because its left and right cosets are not the same.
+    
+    \end{enumerate}
+    
+\end{proof}
+
+\section*{16}
+Consider the subset $H$ of $GL_2(\mathbb{C})$ consisting of the eight matrices
+\[
+\pm\mathbf{1}, \pm\mathbf{i}, \pm\mathbf{j} \text{ and } \pm\mathbf{k},
+\]
+where 
+\[
+\mathbf{1} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+\mathbf{i} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad
+\mathbf{j} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \quad
+\mathbf{k} = \begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix}.
+\]
+Verify that $H$ is a subgroup by constructing the composition table. This group is called the \textit{quaternion group}.
+
+\begin{proof}
+    \textbf{Identity Element:}
+
+The identity matrix \(\mathbf{1}\) is in \( H \).
+
+\textbf{Closure:}
+
+We need to show that the product of any two matrices in \( H \) is also in \( H \). Compute the products:
+
+\[
+\mathbf{i} \mathbf{j} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} = -\mathbf{k}
+\]
+
+\[
+\mathbf{i} \mathbf{k} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} \begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix} = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -\mathbf{i}
+\]
+
+\[
+\mathbf{j} \mathbf{k} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} = \mathbf{i}
+\]
+
+\[
+\mathbf{k} \mathbf{j} = \begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -\mathbf{i}
+\]
+
+\textbf{Inverses:}
+
+Find the inverse of each matrix:
+
+\[
+\mathbf{1}^{-1} = \mathbf{1}, \quad \mathbf{i}^{-1} = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -\mathbf{i}
+\]
+
+\[
+\mathbf{j}^{-1} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = -\mathbf{j}, \quad \mathbf{k}^{-1} = \begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix} = -\mathbf{k}
+\]
+
+All inverses are in \( H \), so \( H \) is a subgroup.
+
+\subsection*{2. Composition Table}
+
+Construct the composition table for \( H \). Calculate the product of each pair of matrices and arrange these results in the table below.
+
+\[
+\begin{array}{c|cccccccc}
+\cdot & \mathbf{1} & -\mathbf{1} & \mathbf{i} & -\mathbf{i} & \mathbf{j} & -\mathbf{j} & \mathbf{k} & -\mathbf{k} \\
+\hline
+\mathbf{1} & \mathbf{1} & -\mathbf{1} & \mathbf{i} & -\mathbf{i} & \mathbf{j} & -\mathbf{j} & \mathbf{k} & -\mathbf{k} \\
+-\mathbf{1} & -\mathbf{1} & \mathbf{1} & -\mathbf{i} & \mathbf{i} & -\mathbf{j} & \mathbf{j} & -\mathbf{k} & \mathbf{k} \\
+\mathbf{i} & \mathbf{i} & -\mathbf{i} & -\mathbf{1} & \mathbf{1} & \mathbf{k} & -\mathbf{k} & -\mathbf{j} & \mathbf{j} \\
+-\mathbf{i} & -\mathbf{i} & \mathbf{i} & \mathbf{1} & -\mathbf{1} & -\mathbf{k} & \mathbf{k} & \mathbf{j} & -\mathbf{j} \\
+\mathbf{j} & \mathbf{j} & -\mathbf{j} & -\mathbf{k} & \mathbf{k} & -\mathbf{1} & \mathbf{1} & \mathbf{i} & -\mathbf{i} \\
+-\mathbf{j} & -\mathbf{j} & \mathbf{j} & \mathbf{k} & -\mathbf{k} & \mathbf{1} & -\mathbf{1} & -\mathbf{i} & \mathbf{i} \\
+\mathbf{k} & \mathbf{k} & -\mathbf{k} & \mathbf{j} & -\mathbf{j} & -\mathbf{i} & \mathbf{i} & -\mathbf{1} & \mathbf{1} \\
+-\mathbf{k} & -\mathbf{k} & \mathbf{k} & -\mathbf{j} & \mathbf{j} & \mathbf{i} & -\mathbf{i} & \mathbf{1} & -\mathbf{1} \\
+\end{array}
+\]
+
+\end{proof}
+
+
+\section*{17}
+Prove that the quaternion group $H$ from Exercise 2.16 is not abelian, but that all its subgroups are normal.
+\begin{proof}
+    To prove that \( H \) is not abelian, we need to find matrices \( A \) and \( B \) in \( H \) such that \( AB \neq BA \).
+
+Consider the matrices \( \mathbf{i} \) and \( \mathbf{j} \):
+\[
+\mathbf{i} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad
+\mathbf{j} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.
+\]
+
+Calculate the product \( \mathbf{i} \mathbf{j} \):
+\[
+\mathbf{i} \mathbf{j} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} = -\mathbf{k}.
+\]
+
+Now calculate the product \( \mathbf{j} \mathbf{i} \):
+\[
+\mathbf{j} \mathbf{i} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = \mathbf{k}.
+\]
+
+Since \( \mathbf{i} \mathbf{j} = -\mathbf{k} \) and \( \mathbf{j} \mathbf{i} = \mathbf{k} \), we have
+\[
+\mathbf{i} \mathbf{j} \neq \mathbf{j} \mathbf{i}.
+\]
+Therefore, \( H \) is not abelian.
+
+\subsection*{2. Normal Subgroups}
+
+To show that all subgroups of \( H \) are normal, consider the subgroups of \( H \):
+
+The quaternion group \( H \) consists of the matrices:
+\[
+H = \{\pm \mathbf{1}, \pm \mathbf{i}, \pm \mathbf{j}, \pm \mathbf{k}\},
+\]
+where
+\[
+\mathbf{1} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+\mathbf{i} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad
+\mathbf{j} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \quad
+\mathbf{k} = \begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix}.
+\]
+
+\begin{enumerate}
+    \item \textbf{Trivial Subgroup:} \\
+    The trivial subgroup \( \{ \mathbf{1} \} \) is normal in \( H \) because it is a subgroup of every group.
+    
+    \item \textbf{Subgroup of Order 2:} \\
+    Any subgroup of \( H \) containing \( \mathbf{1} \) and one of \( \pm \mathbf{i} \), \( \pm \mathbf{j} \), or \( \pm \mathbf{k} \) is normal. For example, consider the subgroup \( \langle \mathbf{i} \rangle = \{ \mathbf{1}, \mathbf{i}, -\mathbf{i}, -\mathbf{1} \} \):
+    \begin{itemize}
+        \item Compute \( \mathbf{i} \mathbf{j} \mathbf{i}^{-1} \):
+        \[
+        \mathbf{i} \mathbf{j} \mathbf{i}^{-1} = -\mathbf{k} \mathbf{i}^{-1} = \mathbf{k} \mathbf{i} = \mathbf{j}.
+        \]
+        Since \( \mathbf{j} \in \langle \mathbf{i} \rangle \), \( \langle \mathbf{i} \rangle \) is normal.
+    \end{itemize}
+    
+    \item \textbf{Subgroup of Order 4:} \\
+    Any subgroup of order 4 is of the form \( \langle \mathbf{i}, \mathbf{j} \rangle \) or similar. Check that each such subgroup is normal:
+    \begin{itemize}
+        \item For example, \( \langle \mathbf{i}, \mathbf{j} \rangle = \{\mathbf{1}, \mathbf{i}, \mathbf{j}, \mathbf{k}, -\mathbf{1}, -\mathbf{i}, -\mathbf{j}, -\mathbf{k}\} = H \), which is normal.
+    \end{itemize}
+    
+    \item \textbf{Whole Group:} \\
+    The whole group \( H \) is trivially normal in itself.
+\end{enumerate}
+\end{proof}
+
+\section*{18}
+Let $G$ be a finite group and $H \supseteq K$ subgroups of $G$. Prove that 
+\[
+|G/K| = |G/H| \cdot |H/K|.
+\]
+\begin{proof}
+    Consider the coset spaces \( G/K \), \( G/H \), and \( H/K \). We will use the following approach:
+
+\begin{enumerate}
+    \item \textbf{Define Coset Representatives:}
+
+    Let \( G/K \) denote the set of left cosets of \( K \) in \( G \). Each coset can be written as \( gK \) for some \( g \in G \).
+
+    Similarly, \( G/H \) denotes the set of left cosets of \( H \) in \( G \), and \( H/K \) denotes the set of left cosets of \( K \) in \( H \).
+
+    \item \textbf{Counting Cosets:}
+
+    To find \( |G/K| \), we need to count the number of distinct cosets \( gK \) where \( g \) ranges over \( G \).
+
+    To find \( |G/H| \), we need to count the number of distinct cosets \( gH \) where \( g \) ranges over \( G \).
+
+    To find \( |H/K| \), we need to count the number of distinct cosets \( hK \) where \( h \) ranges over \( H \).
+
+    \item \textbf{Relate Cosets via Double Cosets:}
+
+    Consider the double cosets of the form \( gH \cdot K \) for \( g \in G \). The double coset \( gH \cdot K \) can be written as
+    \[
+    gH \cdot K = \{ ghk \mid h \in H, k \in K \}.
+    \]
+    This is equivalent to the set of all elements of \( G \) that can be written as \( ghk \), where \( g \) is fixed and \( h \) and \( k \) vary within \( H \) and \( K \) respectively.
+
+    The number of distinct double cosets \( gH \cdot K \) is exactly \( |G/H| \). Each double coset can be decomposed into \( |H/K| \) single cosets of \( K \) within each coset of \( H \).
+
+    \item \textbf{Calculate the Number of Double Cosets:}
+
+    Each coset of \( G/H \) corresponds to exactly \( |H/K| \) distinct cosets of \( K \) within that coset of \( H \). Therefore,
+    \[
+    |G/K| = |G/H| \cdot |H/K|.
+    \]
+
+    This follows from the fact that each coset of \( G/K \) can be uniquely identified by a pair \((gH, hK)\) where \( g \in G \) and \( h \in H \), leading to the multiplication of the sizes of the corresponding coset spaces.
+\end{enumerate}
+\end{proof}
+\end{document}

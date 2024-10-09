@@ -1,0 +1,416 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+% Exercises 19, 20, 21, 24, 26, 28, 31, 32
+
+\newpage
+
+% ------------------------------------------------------------------------------
+\section*{Exercise 19} 
+\begin{enumerate}
+    \item Compute the inverse of $[3]$ in $(\mathbb{Z}/8\mathbb{Z})^*$.
+    \begin{proof}
+        \leavevmode \\ 
+        We have that $[3] \in (\mathbb{Z}/8\mathbb{Z})^*$ if and only if $\gcd(3, 8) = 1$. Since $\gcd(3, 8) = 1$, we have that $[3]$ is invertible in $(\mathbb{Z}/8\mathbb{Z})^*$. We can find the inverse of $[3]$ by solving the following equation:
+        \begin{align*}
+            [3]x &\equiv [1] \pmod{8} \\
+            3x &\equiv 1 \pmod{8} \\
+            x &\equiv 3^{-1} \pmod{8}
+        \end{align*}
+        We can find the inverse of $[3]$ by using the Extended Euclidean Algorithm. We have that:
+        \begin{align*}
+            8 &= 3(2) + 2 \\
+            3 &= 2(1) + 1
+        \end{align*}
+        We can now find the inverse of $[3]$ by working backwards:
+        \begin{align*}
+            1 &= 3 - 2(1) \\
+            &= 3 - (8 - 3(2)) \\
+            &= 3 - 8 + 6 \\
+            &= -8 + 9 \\
+            &= 1
+        \end{align*}
+        Therefore, the inverse of $[3]$ in $(\mathbb{Z}/8\mathbb{Z})^*$ is $[3]^{-1} = [3]$.
+    \end{proof}
+    \item Compute the inverse of $[5]$ in $(\mathbb{Z}/13\mathbb{Z})^*$.
+    \begin{proof}
+         \leavevmode \\ 
+        
+\[
+    \gcd(5, 13) = 1
+    \]
+    
+    Since \(5\) is invertible, we seek \(b\) such that:
+    
+    \[
+    5b \equiv 1 \mod 13
+    \]
+    
+    Using the Extended Euclidean Algorithm:
+    
+    \begin{align*}
+    13 &= 2 \cdot 5 + 3 \\
+    5 &= 1 \cdot 3 + 2 \\
+    3 &= 1 \cdot 2 + 1 \\
+    2 &= 2 \cdot 1 + 0
+    \end{align*}
+    
+    Now, we backtrack:
+    
+    From the third equation:
+    \[
+    1 = 3 - 1 \cdot 2
+    \]
+    
+    Substituting for \(2\):
+    \[
+    1 = 3 - 1 \cdot (5 - 1 \cdot 3) = 3 - 5 + 3 = 2 \cdot 3 - 5
+    \]
+    
+    Substituting for \(3\):
+    \[
+    1 = 2 \cdot (13 - 2 \cdot 5) - 5 = 2 \cdot 13 - 4 \cdot 5 - 5 = 2 \cdot 13 - 5 \cdot 5
+    \]
+    
+    This implies:
+    \[
+    1 \equiv -5 \cdot 5 \mod 13
+    \]
+    
+    Thus, the inverse of \([5]\) in \((\mathbb{Z}/13\mathbb{Z})^*\) is:
+    
+    \[
+    \boxed{[8]}
+    \]
+        Therefore, the inverse of $[5]$ in $(\mathbb{Z}/13\mathbb{Z})^*$ is $[5]^{-1} = [-2] = [11]$.
+
+    \end{proof}
+\end{enumerate}
+
+\section*{Exercise 20}
+Prove that the inverse map of a group isomorphism is also a group homomorphism.
+\begin{proof}
+    \leavevmode \\ 
+    Let $G$ and $H$ be groups and let $\phi: G \to H$ be a group isomorphism. We know that $\phi$ is bijective, so it has an inverse $\phi^{-1}: H \to G$. We want to show that $\phi^{-1}$ is a group homomorphism. Let $a, b \in H$. We have that:
+    \begin{align*}
+        \phi^{-1}(a \cdot b) &= \phi^{-1}(\phi(\phi^{-1}(a)) \cdot \phi(\phi^{-1}(b))) \\
+        &= \phi^{-1}(\phi(\phi^{-1}(a) \cdot \phi^{-1}(b))) \\
+        &= \phi^{-1}(a) \cdot \phi^{-1}(b)
+    \end{align*}
+    Therefore, $\phi^{-1}$ is a group homomorphism.
+\end{proof}
+
+\section*{Exercise 21}
+Prove that $G$ is abelian if and only if the map $f: G \to G$ given by $f(g) = g^2$ is a group homomorphism.
+\begin{proof}
+        \leavevmode \\  
+        Let \( G \) be a group, and define the map \( f: G \to G \) by \( f(g) = g^2 \).
+
+      
+        Assume $G$ is abelian. 
+        We want to show that \( f \) is a homomorphism, i.e., \( f(g_1 g_2) = f(g_1) f(g_2) \) for all \( g_1, g_2 \in G \).
+        
+        Calculating the left-hand side:
+        \[
+        f(g_1 g_2) = (g_1 g_2)^2 = g_1 g_2 g_1 g_2
+        \]
+        
+        Since \( G \) is abelian, we can rearrange the terms:
+        \[
+        g_1 g_2 g_1 g_2 = g_1 g_1 g_2 g_2 = g_1^2 g_2^2
+        \]
+        
+        Now calculating the right-hand side:
+        \[
+        f(g_1) f(g_2) = g_1^2 g_2^2
+        \]
+        
+        Thus,
+        \[
+        f(g_1 g_2) = f(g_1) f(g_2)
+        \]
+        This shows that \( f \) is a homomorphism. \\ now assume $f$ is a homoomorphism
+        
+        We need to show that \( G \) is abelian, i.e., \( g_1 g_2 = g_2 g_1 \) for all \( g_1, g_2 \in G \).
+        
+        Using the homomorphism property, we have:
+        \[
+        f(g_1 g_2) = f(g_1) f(g_2)
+        \]
+        Substituting the definition of \( f \):
+        \[
+        (g_1 g_2)^2 = g_1^2 g_2^2
+        \]
+        
+        Expanding the left-hand side:
+        \[
+        g_1 g_2 g_1 g_2 = g_1^2 g_2^2
+        \]
+        
+        Rearranging gives:
+        \[
+        g_1 g_2 g_1 g_2 = g_1 g_1 g_2 g_2
+        \]
+        
+        Cancelling \( g_1 \) from the left (since \( G \) is a group and hence has inverses), we can assume:
+        \[
+        g_2 g_1 = g_1 g_2
+        \]
+        
+        This shows \( g_1 g_2 = g_2 g_1 \) for all \( g_1, g_2 \in G \), confirming that \( G \) is abelian.
+    \end{proof}
+
+
+    \section*{Excercise 24}
+    Prove that $\begin{bmatrix}
+        1 & 1 \\
+        0 & 1
+    \end{bmatrix} \in GL_2(\mathbb{R})$ has infinite order in the group $GL_2(\mathbb{R})$.
+   \begin{proof}
+        \leavevmode \\
+        Let $A = \begin{bmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{bmatrix} \in GL_2(\mathbb{R})$. We want to show that $A$ has infinite order in $GL_2(\mathbb{R})$. We have that:
+        \begin{align*}
+            A^n &= \begin{bmatrix}
+                1 & 1 \\
+                0 & 1
+            \end{bmatrix}^n \\
+            &= \begin{bmatrix}
+                1 & n \\
+                0 & 1
+            \end{bmatrix}
+        \end{align*}
+        We can see that $A^n$ is the identity matrix if and only if $n = 0$.  Since there are no positive integers \(n\) such that \(A^n = I\), we conclude that \(A\) has infinite order in \(GL_2(\mathbb{R})\).Therefore, $A$ has infinite order in $GL_2(\mathbb{R})$.
+        
+   \end{proof}
+
+    \section*{Exercise 26}
+    Let $G$ be an abelian group, $K$ a group, and $f: G \to K$ a group homomorphism. We want to show that $f(G) \subseteq K$ is an abelian subgroup of $K$.
+    \begin{proof}
+        \leavevmode \\ 
+        Let \( G \) be an abelian group, \( K \) a group, and \( f: G \to K \) a group homomorphism. We aim to show that \( f(G) \) is an abelian subgroup of \( K \).
+
+        
+        To show that \( f(G) \) is a subgroup of \( K \), we need to verify that it satisfies the subgroup criteria:
+        
+        1. e: Since \( f \) is a homomorphism and \( e_G \) is the identity in \( G \), we have:
+           \[
+           f(e_G) = e_K,
+           \]
+           where \( e_K \) is the identity in \( K \). Thus, \( e_K \in f(G) \).
+        
+        2. Closures: Let \( x, y \in f(G) \). Then there exist \( g_1, g_2 \in G \) such that \( x = f(g_1) \) and \( y = f(g_2) \). Since \( f \) is a homomorphism, we have:
+           \[
+           xy = f(g_1) f(g_2) = f(g_1 g_2).
+           \]
+           Since \( g_1 g_2 \in G \), it follows that \( xy \in f(G) \).
+        
+        3. inverse Let \( x \in f(G) \). Then there exists \( g \in G \) such that \( x = f(g) \). The inverse of \( x \) in \( K \) is given by:
+           \[
+           x^{-1} = f(g)^{-1} = f(g^{-1}).
+           \]
+           Since \( g^{-1} \in G \), we have \( x^{-1} \in f(G) \).
+        
+        Since all three conditions for a subgroup are satisfied, we conclude that \( f(G) \) is a subgroup of \( K \).
+        
+  
+        
+        Let \( x, y \in f(G) \). Then there exist \( g_1, g_2 \in G \) such that \( x = f(g_1) \) and \( y = f(g_2) \). Since \( G \) is abelian, we have:
+        \[
+        g_1 g_2 = g_2 g_1.
+        \]
+        Using the homomorphism property, we get:
+        \[
+        xy = f(g_1) f(g_2) = f(g_1 g_2) = f(g_2 g_1) = f(g_2) f(g_1) = yx.
+        \]
+        Thus, \( xy = yx \), showing that \( f(G) \) is abelian.
+        
+        Therefore, we conclude that \( f(G) \) is an abelian subgroup of \( K \).
+    \end{proof}
+
+    \section*{Exercise 28}
+     Prove that $(\mathbb{Z}/13\mathbb{Z})^*$ is a cyclic group by finding a generator.
+
+
+
+\begin{proof}
+    \leavevmode \\
+    We want to show that $(\mathbb{Z}/13\mathbb{Z})^*$ is a cyclic group by finding a generator. We know that $(\mathbb{Z}/13\mathbb{Z})^*$ is the set of all elements in $\mathbb{Z}/13\mathbb{Z}$ that are relatively prime to $13$. We can find a generator for $(\mathbb{Z}/13\mathbb{Z})^*$ by finding an element of order $12$. We can find an element of order $12$ by checking the orders of the elements in $(\mathbb{Z}/13\mathbb{Z})^*$:
+    \begin{align*}
+        [1]^1 &= [1] \\
+        [2]^1 &= [2] \\
+        [3]^1 &= [3] \\
+        [4]^1 &= [4] \\
+        [5]^1 &= [5] \\
+        [6]^2 &= [1] \\
+        [7]^1 &= [7] \\
+        [8]^2 &= [1] \\
+        [9]^2 &= [1] \\
+        [10]^2 &= [1] \\
+        [11]^2 &= [1] \\
+        [12]^2 &= [1]
+    \end{align*}
+    We can see that $[6]$ is an element of order $12$ in $(\mathbb{Z}/13\mathbb{Z})^*$. Therefore, $(\mathbb{Z}/13\mathbb{Z})^*$ is a cyclic group with generator $[6]$.
+\end{proof}
+
+
+\section*{Exercise 31}
+31. (i) write down all the elements with order 7 in Z/28Z?
+(ii) How many subgroups are there of order 7 in Z/28Z?
+
+\begin{enumerate}
+    \item write down all the elements with order 7 in $\mathbb{Z}/28\mathbb{Z}$.
+    \begin{proof}
+        We want to find all the elements of order \(7\) in \(\mathbb{Z}/28\mathbb{Z}\). An element \([x]\) has order \(7\) if and only if \(7x \equiv 0 \mod 28\) and \(x \not\equiv 0 \mod 28\).
+
+        This means \(x\) must be a multiple of \(4\) (since \( \frac{28}{7} = 4\)), but not a multiple of \(28\). The candidates are \(4, 8, 12, 16, 20, 24\).
+
+        Calculating orders:
+        \begin{align*}
+            [4]^7 &\equiv [0], \\
+            [8]^7 &\equiv [0], \\
+            [12]^7 &\equiv [0], \\
+            [16]^7 &\equiv [0], \\
+            [20]^7 &\equiv [0], \\
+            [24]^7 &\equiv [0].
+        \end{align*}
+
+        The elements of order \(7\) in \(\mathbb{Z}/28\mathbb{Z}\) are \([4]\) and \([24]\).
+    \end{proof}
+
+    \item How many subgroups are there of order 7 in \(\mathbb{Z}/28\mathbb{Z}\)?
+    \begin{proof}
+        The number of subgroups of order \(7\) in \(\mathbb{Z}/28\mathbb{Z}\) corresponds to the number of elements of order \(7\). Since \(7\) is prime and divides \(28\), there are \( \phi(7) = 6\) distinct elements of order \(7\).
+
+        Hence, there are \(6\) subgroups of order \(7\) in \(\mathbb{Z}/28\mathbb{Z}\).
+    \end{proof}
+    
+\end{enumerate}
+z/3 x z/5z 
+\section*{Exercise 32}
+\begin{enumerate}
+    \item prove that the cyclic group $(\mathbb{Z} / 15\mathbb{Z})^*$ is isomorphic to the product group $\mathbb{Z} / 3\mathbb{Z} \times \mathbb{Z} / 5\mathbb{Z}$.
+    \begin{proof}
+        \leavevmode \\ 
+        We want to show that the cyclic group $(\mathbb{Z} / 15\mathbb{Z})^*$ is isomorphic to the product group $\mathbb{Z} / 3\mathbb{Z} \times \mathbb{Z} / 5\mathbb{Z}$. We know that $(\mathbb{Z} / 15\mathbb{Z})^*$ is the set of all elements in $\mathbb{Z} / 15\mathbb{Z}$ that are relatively prime to $15$. We can find a generator for $(\mathbb{Z} / 15\mathbb{Z})^*$ by finding an element of order $8$. We can find an element of order $8$ by checking the orders of the elements in $(\mathbb{Z} / 15\mathbb{Z})^*$:
+        \begin{align*}
+            [1]^1 &= [1] \\
+            [2]^4 &= [1] \\
+            [4]^2 &= [1] \\
+            [7]^4 &= [1] \\
+            [8]^2 &= [1] \\
+            [11]^4 &= [1] \\
+            [13]^4 &= [1] \\
+            [14]^2 &= [1]
+        \end{align*}
+        We can see that $[2]$ is an element of order $8$ in $(\mathbb{Z} / 15\mathbb{Z})^*$. Therefore, $(\mathbb{Z} / 15\mathbb{Z})^*$ is a cyclic group with generator $[2]$. We can now define a group isomorphism $\phi: (\mathbb{Z} / 15\mathbb{Z})^* \to \mathbb{Z} / 3\mathbb{Z} \times \mathbb{Z} / 5\mathbb{Z}$ by:
+        \begin{align*}
+            \phi([2]^0) &= ([0], [0]) \\
+            \phi([2]^1) &= ([1], [2]) \\
+            \phi([2]^2) &= ([2], [4]) \\
+            \phi([2]^3) &= ([0], [1]) \\
+            \phi([2]^4) &= ([1], [3]) \\
+            \phi([2]^5) &= ([2], [1]) \\
+            \phi([2]^6) &= ([0], [2]) \\
+            \phi([2]^7) &= ([1], [4])
+        \end{align*}
+        We can see that $\phi$ is a group isomorphism. Therefore, $(\mathbb{Z} / 15\mathbb{Z})^*$ is isomorphic to the product group $\mathbb{Z} / 3\mathbb{Z} \times \mathbb{Z} / 5\mathbb{Z}$.
+
+    \end{proof}
+    \item Prove that the group $(\mathbb{Z} / 15\mathbb{Z})^*$ is isomorphic to the product group $\mathbb{Z} / 2 \mathbb{Z} \times \mathbb{Z} / 4\mathbb{Z}$. Conclude that $(\mathbb{Z} / 15\mathbb{Z})^*$ is not cyclic 
+    \begin{proof}
+        \leavevmode \\ 
+        We want to show that the group \((\mathbb{Z}/15\mathbb{Z})^*\) is isomorphic to \(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/4\mathbb{Z}\).
+
+From Part 1, we know \((\mathbb{Z}/15\mathbb{Z})^*\) has \(8\) elements and can be expressed as:
+\[
+(\mathbb{Z}/15\mathbb{Z})^* \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z}.
+\]
+We will verify that this is also isomorphic to \(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/4\mathbb{Z}\) through structure analysis.
+
+The orders of elements in \((\mathbb{Z}/15\mathbb{Z})^*\) reveal that there are \(2\) elements of order \(2\) and \(4\) elements of order \(4\). Hence, the group cannot be cyclic since it contains non-cyclic subgroups.
+
+The structure \(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/4\mathbb{Z}\) is not cyclic either, hence concluding:
+\[
+(\mathbb{Z}/15\mathbb{Z})^* \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/4\mathbb{Z} \text{ and is not cyclic.}
+\]
+    \end{proof}
+\end{enumerate}
+
+
+
+\end{document}

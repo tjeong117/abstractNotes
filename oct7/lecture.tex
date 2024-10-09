@@ -1,0 +1,222 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{multirow}
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Symmetric Groups continued..}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{symmetric group}
+last time: we talked about inversions. $n_{\sigma}$ \\ 
+$sgn: S_n \to \{1, -1\}$ \\
+$A_n = ker(sgn)$ \\ 
+$|A_n| = \frac{n!}{2}$ \\
+
+example: $A_2 = \{id\}$ \\
+
+\begin{proposition}[2.9.17] \leavevmode \\
+let $n \geq 2$ then \begin{enumerate}
+    \item a transposition $\tau = (ij) \in S_n$ is an odd permutation
+    \item the sign of a k cycle $(x_1 x_2 \dots x_k)$ is $(-1)^{k-1}$
+\end{enumerate}    
+\end{proposition}
+\begin{proof}
+    \leavevmode \\ 
+    1. let $(x y) \in S_n$ be a transposition. Then $\exists \sigma \in S_n$ s.t. $\sigma(1) = x$ and $\sigma(2) = y$. so $\sigma(12)\sigma^{-1} = (xy)$. (lemma 2.9.8)\\
+    so $sgn(xy) = sgn(\sigma(12)\sigma^{-1}) = sgn(\sigma)sgn(12)sgn(\sigma^{-1}) = sgn(12) = -1$ \\
+2. $(x_1 x_2 \dots x_k) = (x_1 x_k)(x_1 x_{k-1}) \dots (x_1 x_3)(x_1 x_2) $ \\
+so $sgn(x_1 x_2 \dots x_k) = (-1)^{k-1}$
+\end{proof}
+
+ex. $\sigma =\begin{bmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7\\
+    3 & 4 & 6 & 1 & 7 & 2 & 5 
+\end{bmatrix} = (1 3 6 2 4)(57)$ 
+$$sgn(\sigma) = (-1)^4  (-1)^1 = -1 $$
+
+Q: Why are symmetric groups important? \\ 
+\begin{theorem}[Cayley's Theorem] \leavevmode \\ 
+\end{theorem}
+
+Every finite group G is isomorphic to a subgrouop of $S_n$ or $S_{|G|}$ for some n. where $n = |G|$.
+\begin{proof} \leavevmode \\ 
+    Let $S_G$ be the group of permutations on the set $G$. \\ 
+    Define a map $f: G \to S_G$ by $f(x) = \phi_x$ where $\phi_x: G \to G$ is defined by $\phi_x(g) = xg$. \\ inverse of $\phi_x$ is $\phi_{x^{-1}}$ 
+    \\ similarly $\phi_x^{-1} \phi_x(g) = g$. \\ 
+    $\phi_x$ is a bijection, since $\phi_x^{-1}$ is its left and right inverse 
+    
+    \begin{enumerate}
+        \item \underline{f is a homomorphism}: $f(x) \cdot f(y) = \phi_x \cdot \phi_y = \phi_x \circ \phi_y = \phi_{xy} = f(xy)$
+        \item \underline{f is injective}: $f(x) = f(y) \implies \phi_x = \phi_y \implies \phi_x(e) = \phi_y(e) \implies x = y$
+    \end{enumerate}So $f: G \to S_G$ is an bijective homomorphism. ie an isomorphism. (co domain is the image so it is surjective by definition)
+    
+\end{proof}
+ex. $\mathbb{Z} / n \mathbb{Z} $ is isomorphic to a subgroup of $S_n$. 
+$$f: \mathbb{Z} / n \mathbb{Z}$$
+$f(k) = \phi_k$ where $\phi_k(x) = k = x$ \\$\mathbb{Z}/ n \mathbb{Z} \cong <(1234\dots n) > \subseteq S_n$
+\\ 
+Ex2. $G= \mathbb{Z } / 2\mathbb{Z} \times \mathbb{Z } / 2\mathbb{Z}$ where $|G| = 4$ \\ 
+$f: \mathbb{Z } / 2\mathbb{Z}\times \mathbb{Z } / 2\mathbb{Z} \to S_4$  \\ 
+$f((0,0)) = id$ \\
+$f((1,0)) = (12)$ \\
+$f((0,1)) = (34)$ \\
+$f((1,1)) = (12)(34)$ 
+
+\section*{Actions of groups }
+Recall: consider the symmetric group $S_n$ and the set $M_n = \{1, 2, \dots, n\}$. we kow \begin{enumerate}
+    \item $e(i) = i \forall i \in M_n$
+    \item $(\tau  \sigma)(i) = \tau(\sigma(i))$ 
+\end{enumerate}
+This is a special case of more general phenomenon. 
+\begin{definition}[2.10.1]\leavevmode \\ 
+    Let $G$ be a group and $S$ set. We say that $G$ acts (from the left) on $S$ if there is a map 
+    $$\alpha: G \times S \to S$$ 
+    such that 
+    \begin{enumerate}
+        \item $e \cdot s = s \forall s\in S$
+        \item $(gh) \cdot s = g \cdot (h \cdot s) \forall g,h\in G, s\in S$
+    \end{enumerate} 
+    
+\end{definition}
+example $S_n$ acts on $M_n$ notation: we write $S_n \circlearrowright M_n $ "acts on " 
+
+Idea: if $G$ acts on $S$ that is like saying that at least some of the symmetries of S are described by G. 
+\\ EX. recall $D_3 = \{\text{symmetris of equilateral triangle }\}$  and Let $S = \{\text{Points on an equilateral triangle}\}$ we can say that $D_3 \circlearrowright S$
+
+$<s_1> \cong \mathbb{Z} / 2\mathbb{Z}$ \\ 
+$\mathbb{Z} / 2 \mathbb{Z} \circlearrowright S$ in the following way: 
+\begin{align*}
+    \alpha: \mathbb{Z} / 2\mathbb{Z} \times S &\to S \\
+    \alpha([n], p) &\to s_1^n (p)\\
+    \alpha([0], p) &\to p\\
+    \alpha([1], p) &\to s_1(p)
+\end{align*}
+
+\begin{definition}
+    Let $G$ act on a set $S$ and let $X \subseteq S$ and $s \in S$ \begin{enumerate}
+        \item fix $s \in S$ then $G \cdot s  = Gs = \{g\cdot s | g\in G\}$ is called the \underline{orbit} of s under the action of G 
+        \item The set of \underline{orbits} $\{Gs | S \in S\}$ is denoted $S / G $
+        \item Fix $g \in G$ let $g\cdot X = g X = \{gx | x \in X\}$ Then, $G_x = \{g \in G | g \cdot X = X\}$ is called the \underline{stabilizer} of x under the action of G. \\ if $X = \{x\}$., we deote $G_x$ by $G_x$
+        \item We say $s\in S$ is a \underline{fixed Point} for the action of $G$ on $S$ if $g\cdot s = s \forall g \in G.$ The set of fixed points of G is denoted $S^G$
+    \end{enumerate} 
+\end{definition}
+\underline{remark}: Can define an equivalence relation on S. given $s, t \in S$ we say $s \sim t$ if $\exists g \in G$ such that $g\cdot s = t$. We will see that the orbit is the equivalence class of s. and the set of orbits of S is the partition of S induced by the equivalence relation $\sim$
+ex: $S_n \circlearrowright M_n$ \\ by $\alpha: S_n \times M_n \to M_n$ \\ and $\alpha(\sigma, i) = \sigma(i)$ \\
+\\ 
+the orbit 
+$S_n \cdot i = \{\sigma(i) | \sigma \in S_n \} \subseteq M_n = M_n$ since $\forall j \in M_n \text{ }\exists \sigma \in S_n$ such that $\sigma(i) = j$ \\
+
+ ex. fix $\sigma \in S_n$ and let $H = <\sigma> = \{\sigma^k | k \in \mathbb{Z}\}$  \\ 
+ Then $H \circlearrowright M_n$ 
+ \\ 
+ $\alpha: H \times M_n \to M_n$ \\
+    $\alpha(\sigma^k, i) = \sigma^k(i)$ \\
+    $M_n / H \leftrightarrow \text{ dijoint cycles of } \sigma$ 
+
+e.g. $\sigma = (123)(56) \in S_6$ \\ 
+$H = <\sigma> $
+$H \cdot 1 = \{1, 2, 3\} = H \cdot 2 = H \cdot 3$ 
+\\ 
+$H \cdot 4 = \{4\} $\\
+$H \cdot 5 = \{5, 6\} = H\cdot6$ \\ 
+
+$M_6 / H = \{\{1,2,3\}, \{4\}, \{5, 6\}\}$ \\ sets of orbits 
+
+$H_{M_6} = \{h \in H | h\cdot M_6 = M_6\} = H$ \\ 
+$H_{\{H\}} = \{\sigma^2, \sigma^4, e\}$
+\\ 
+$M_6^H = \{4\}$ 
+
+\end{document}
+ 

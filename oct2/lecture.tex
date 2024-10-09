@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{multirow}
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Proof,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proofbox}
+\tcolorboxenvironment{proofbox}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Symmetric Groups continued..}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{symmetric group}
+\begin{lemma}[2.9.8] \leavevmode \\
+    suppose $\tau = (i, i_2, \dots, i_k)$ is a k-cycle and $\sigma \in S_n$ then, $\sigma \tau \sigma^{-1} = (\sigma(i), \sigma(i_2), \dots, \sigma(i_k))$.
+    where $\sigma(i_j) \rightarrow \sigma(i_{j+1})$
+\end{lemma}
+ex. $$(1 3 4) = (1 \space 2) (2 \space 3\space 4) (1\space2)$$
+\begin{proof}
+    let $j = \{\sigma(i_1), \sigma(i_2), \dots, \sigma(i_k)\}$, both the LHS and RHS of the lemma formula take on the same values for $j\in J$ and $j \notin J$ to itself. Hence LSH are RHS are equal. 
+\end{proof}
+Another way to see that every permutation is a product of simple transpositions: (idea of bubble sort)
+ex: $$\sigma = \begin{bmatrix}
+    1 & 2 & 3 & 4 & 5 \\
+    5 & 2 & 1 & 4 & 3
+\end{bmatrix}$$ 
+use bubble sort: each time a neighboring pair is out of order, swap the two, and iterate the process. 
+\begin{align*}
+    52143 &\rightarrow^{(12)} 25143 \\ 
+    \sigma = &\begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 \\
+        5 & 2 & 1 & 4 & 3
+    \end{bmatrix} (12) = \sigma = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 \\
+        2 & 5 & 1 & 4 & 3
+    \end{bmatrix} \\ 
+    25143 &\rightarrow^{(23)} 21543  \rightarrow^ {(34)} 21354 \rightarrow^{(45)} 21345 \dots   \\ 
+    \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 \\
+        5 & 2 & 1 & 4 & 3
+    \end{bmatrix}&(12)(23)(12)(34)(45)(34) = e 
+\end{align*}
+so equivelently $\begin{bmatrix}
+    1 & 2 & 3 & 4 & 5 \\
+    5 & 2 & 1 & 4 & 3
+\end{bmatrix} = (12)(23)(12)(34)(45)(34)$ \\
+
+
+
+Q: what is the smallest number of simple transpositions needed to express $\sigma \in S_n$?
+\begin{definition}[2.9.10] \leavevmode \\     
+    let $\sigma \in S_n$ A pair of indices $(i,j)$ where $1 \leq i < j \leq n$ is called \underline{inversion of $\sigma$} if $\sigma(i) > \sigma(j)$. \\ 
+    Let $I_{\sigma} = \{(i,j) | 1 \leq i < j \leq n \text{ and } \sigma(i) > \sigma(j) \}$ denote the set of inversions of $\sigma$ and $n_{\sigma} = |I_{\sigma}|$ denote the number of inversions of $\sigma$.
+\end{definition}
+ex: $\sigma = \begin{bmatrix}
+    1 & 2 & 3 \\ 
+    5 & 2 & 1 \\
+\end{bmatrix} $ then we have $I_\sigma = \{(12), (13), (23)\}$ 
+\begin{proposition}[2.9.12] \leavevmode 
+    \begin{enumerate}
+        \item the permutation $\sigma \in S_n$ is the identity iff $n_{\sigma} = 0$
+        \item if $\sigma \not = id$ then $\exists i \in \{1, 2 \dots, n-1\}$ such that $\sigma(i) > \sigma(i+1)$
+    \end{enumerate}
+    
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\rightarrow$: true since identity has no inversions 
+        \\ 
+    $\leftarrow$ if $\sigma \not = id$ then $\exists$ smallest $i \in M_n$ such that $\sigma(i) > j$ then $(i, \sigma^{-1} (i))$ is an inversion of $\sigma$, hence $n_{\sigma} \not = 0$
+    \item if $\sigma(1) < \sigma(2) < \dots < \sigma(n)$ then $n_{\sigma} = 0$ so $\sigma = id$
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}[2.9.13] \leavevmode \\ 
+    Let $s_i \in S_n$ be the imple transposition $(i, i+1)$ then $n_{\sigma s_i} = \begin{cases}
+        n_{\sigma} + 1 & \text{if } \sigma(i) < \sigma(i+1) \\ 
+        n_{\sigma} - 1 & \text{if } \sigma(i) > \sigma(i+1) \\
+    \end{cases}$
+\end{lemma}
+\begin{proof}
+    suppose $\sigma(i) < \sigma(i + 1)$ then $(i, i+1)$ is not an inversion of $\sigma$ but is an inversion of $\sigma s_i$ so $n_{\sigma s_i} = n_{\sigma} + 1$ \\
+\end{proof}
+caimL 
+$$\phi: I_{\sigma} \rightarrow I_{\sigma s_i} \backslash \{(i, i+1)\}$$
+$$(k,l) \rightarrow (s_i(k) , s_i(l) ) $$ is a bijection and so $$n_{\sigma s_i} = n_{\sigma} + 1$$
+
+
+
+\begin{proof}
+    proof of claim: 
+    If $(kl) \in I_{\sigma}$ then $s_i(k) >  s_i(l)$ since theo nly way for $s_i(k) < s_i(l)$ is if $k = i$ and $l = i+1$ but $(kl) \not = (i, i+1)$
+    Hence $(s_i(k), s_i(l)) \in I_{\sigma s_i} \backslash \{(i, i+1)\}$. Similarly if $(s_i(k), s_i(l)) \in I_{\sigma s_i} \backslash \{(i, i+1)\}$ then $s_i(k) > s_i(l)$ so $(kl) \in I_{\sigma}$
+\end{proof}
+\begin{proposition}[2.9.14] \leavevmode \\ 
+    let $\sigma \in S_n$ THen \begin{enumerate}
+        \item $\sigma$ is a product of $n_{\sigma}$ simple transpositions
+        \item $n_{\sigma}$ is the minimal number of simple transpositions needed to write $\sigma$ as a product of simple transpositions. 
+        
+    \end{enumerate}
+    
+\end{proposition}
+\begin{proof}
+    1. Induction on $n_{\sigma}$ \\
+    Base Case: if $n_{\sigma} = 0, $ then by proposition 2.9.12 $\sigma = id$ so $\sigma $ is the empty product of zero simple transpositions. 
+    \\ 
+    Inductive step: if $n_{\sigma} != 0$ then by prop 2.9.12 there exists $i \in \{1, 2, \dots, n-1\}$ such that $\sigma(i) > \sigma(i+1)$ then by lemma 2.9.13 $n_{\sigma s_i} = n_{\sigma} - 1$ so by induction $\sigma = s_i \sigma s_i$ is a product of $n_{\sigma} - 1$ simple transpositions.
+
+    By the induction hypothesis $\sigma s_i$ can be written as a product of $n_{\sigma s_i} = n_{\sigma} - 1$ simple transpositions, then $\sigma s_i s_i = \sigma $ is a product of $n_{\sigma}$ simple transpositions.
+
+
+    2. let $l(\sigma) = $ the min number of simple transpositions needed to express $\sigma$. By part1, $l(\sigma) \leq n_{\sigma}$. Suppose $l(\sigma) = k < n_{\sigma}$ then $\sigma = s_{i_1} s_{i_2} \dots s_{i_k}$ is a product
+
+
+    inductive step: assume $l(\sigma) > 0.$ then we can find a simple transposition $s_i$ such that $l(\sigma s_i)  = l(\sigma) - 1$. Therefore, $l(\sigma s_i) = n_{\sigma s_i}$ by induction hypothesis and $l(\sigma) \geq n_{\sigma}$ by lemme 2.9. 13
+    $$l(\sigma ) - 1 = l(\sigma s_i) = n \sigma s_i = n_{\sigma} \pm 1$$
+\end{proof}
+
+
+\begin{definition}[2.9.15]
+    \leavevmode \\ 
+    the signs of $\sigma \in S_n$ is $sgn(\sigma) = (-1)^{n_{\sigma}}$
+\end{definition}
+
+
+\begin{proposition}[2.9.16 ] \leavevmode \\ 
+    the sign of a permutation $$sgn: S_n \rightarrow \{\pm 1\}$$ is a group homomorphism where composition on $\{\pm 1\}$ is multiplication s
+\end{proposition}
+
+\begin{proof}
+    by lemme 2.9.13, $n_{\sigma s_i} = n_{\sigma} \pm1 $ so $sgn(\sigma s_i) = (-1)^{n_{\sigma} \pm 1} = (-1)^{n_{\sigma}} (-1)^{\pm 1} = sgn(\sigma) sgn(s_i)$
+    since any $\tau \in S_n$ can be written as a product of simple transpositions it follows that $sgn(\tau) = sgn(\sigma_1) sgn(\sigma_2) \dots sgn(\sigma_k)$
+\end{proof}
+
+\begin{definition}
+    the alternating group is $$A_n = ker(sgn) = \{\sigma \in S_n | sgn(\sigma ) = 1\}$$
+\end{definition}
+
+\underline{Note:} $A_n $ is a normal subgroup of $S_n$ by the isomorphism theorem, $S_n / A_n \cong \{\pm 1\}$
+ \end{document}
+ 
