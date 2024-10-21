@@ -1,0 +1,3 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Sylow}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Exmaples of Sylow Theorems}{4}{subsection.1.1}%

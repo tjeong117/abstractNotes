@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz} 
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+% Define a new color for the example box
+
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Example,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Sylow Theorem}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{Sylow}
+Proof of the first sylow theorem: 
+
+\begin{proof}
+    Let $S = \{X \subseteq G | |X| = p^r\}$
+    Define $\alpha: G \times S \to S $ group action. 
+   $$\alpha(g,X) = \{gx | x \in X\}$$
+    Since multiplication by $g$ is a bijection, $\alpha(g, X) \in S$  
+\end{proof}
+\underline{Exercise:} Check that $\alpha$ is a group action. 
+Observe that the number of subsets, $X$ of $G$ with $|X| = p^r$ is $$|S| = \binom{p^rm}{p^r }$$
+
+
+\underline{Exercise:} The highest power of p dividing $p^r - i$ is the highest power of $p$ dividing $p^rm -i$ for $i = 0,1, \cdot p^r -1$ \\ 
+show that p doens't deivide the size of s
+
+
+
+ 
+By proposition (2,19.5 - 2) The set of G orbits partitions $S$ so $\exists$ orbit $G \cdot X, X \in S$ such that $p \nmid |G \cdot X|$ because if $p \mid |G\cdot X| \forall X \in S$ then $p\mid |S|$ \\ 
+By Lagrnage's theorem and Proposition 2.10.2 (3) $$|G| = |G \cdot X | |G_X| $$ where $G_X \text{ (is the stabilizer) } = \{g \in G | gX = X\}$
+\\ So $p^r \mid |G_X| $ since $p \nmid |G \cdot X|$ \\ 
+Claim: $|G_X| = p^r$ and profe of claim $G_X \circlearrowright X$ and orbit are right cosets. $G_X \cdot g$ (each coset has $|G_X|$ elements)
+
+
+\begin{align*}
+    & |G_X|  = |G_X|  \\ 
+    &  \text{since orbits partition } X \\
+    & |G_X| \mid |X| \\ 
+    & \text{so } |G_X| \mid p^r \\ 
+    & \text{hence } |G_X| = p^r \text{, so } G_X \text{ is the desired Sylow } p \text{-subgroup of } G.
+\end{align*}
+See textbook for proofs of 2nd and 3rd Sylow Theorems.
+\subsection{Exmaples of Sylow Theorems}
+
+Example: prove that any group G of order 35 is isomprhic to $\mathbb{Z} / 35 \mathbb{Z}$ 
+PF: since 35 = 5 x 7 the third sylo theorem implies: \begin{align*}
+    &|Syl_7(G) | = \{1,5\} \\ 
+    &|Syl_5(G) | = \{1,7\} \\ 
+    &|Syl_7(G) | \equiv 1 \text{ mod } 7\\ 
+    &|Syl_5(G) | \equiv 1  \text{ mod } 5 \\ 
+    &\text{ so } \exists! \text{ Sylow 7-Subgroup P of G } \\ 
+    &\exists! \text{ Sylow 5-Subgroup Q of G } \\ 
+\end{align*}
+Hence by Corollary to 2nd Sylow Theorem. $P$ and $Q$ are normal in G.  \\ BY Lemma 2.3.6, $PQ$ is a subgroup of $G$ contaninig $P$ and $Q$ as subgroups, Ten $|PQ| = 35$
+\\ $|P| = 7 $ divides $|PQ| $
+\\ $|Q| = 5 $ divides $|PQ| $
+\\ Hence $PQ = G$ and Since $P \cap Q$ is a propeor subgroup of $Q$, we have that $P \cap Q = \{e\}$ by Lagrange. Tehn by lemma 2.8.11 
+
+\begin{align*}
+    &\Pi: P \times Q \to PQ = G \\ 
+    &\pi(p,q) = pq
+\end{align*} is an isomorphism. 
+SO $G \cong \mathbb{Z} / 7\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z}$ and by proposition 2.8.2, \\begin{align*}
+    $\mathbb{Z} / 7\mathbb{Z} \times\mathbb{Z}/5\mathbb{Z} \cong \mathbb{Z}/35\mathbb{Z}$
+
+
+\section*{Rings}
+Q: What would happen if a set had two different operations on it? 
+EX: we know $(\mathbb{Z}, +)$ are a group mltiplication is a binary operation on Z. $a \cdot (b + c) = a\cdot b + a \cdot c$
+ObserveL $(\mathbb{Z}, \cdot )$ is not a group no inverse \\
+\begin{definition}
+    Deifine a \underline{ring} is an abelian group $(R, +)$ with an additional binary operation. 
+    $$\cdot: R \times R \to R$$ called multiplication. Multiplication satisfies the follwoing $\forall x,y,z \in \mathbb{R}$: 
+    \begin{enumerate}
+        \item multilpication is associative
+        \item there exists a multiplcative identity
+        \item Multi. distributes over addition $x(y + z) = xz xy$ 
+    \end{enumerate}
+    (some books dont require an identity and its call this a ring with unity)
+\end{definition}
+
+Notes for $x \in R$ there is always an additive inverse -x. \\ 
+There might not be a multiplicative invers.
+\underline{nOtation.}
+ \begin{enumerate}
+    \item we will generally write xy for x $\cdot$ y.
+    \item we will write 0 for the additive identity 
+\end{enumerate}
+
+exercise: provet htat $0 \cdot x = x \cdot 0 = 0 \forall x \in \mathbb{R}$
+ex.r \\ 
+Ringss $(\mathbb{Z}, +, \cdot), (\mathbb{Z}/ n\mathbb{Z}, + , \cdot), (\mathbb{Q}, + , \cdot)$
+
+
+\begin{definition}
+    Let R be a ring. \begin{enumerate}
+        \item A subset $S \subset R$ is called a subring of $R$ 
+        S is a subgroup of $(R, +)$ and \begin{enumerate}
+            \item $1 \in S$ 
+            \item if $x, y \in S$ then $x\cdot y \in S$ 
+            
+        \end{enumerate}
+        \item An element $x \in R \backslash \{0\}$ is called a zero divisor if $\exists y \in \mathbb{R} \backslash \{0\}$
+        \item An element $x\in R$ is called a unit if $\exists y \in R$ such that $xy = 1 = yx$ we denote $y $ by $x^{-1}$ and y is called the multiplicative inverse of x. The set of units in R is denoted $R^*$
+        \item We say R commutative ring if $xy = yx \forall x,y \in R$
+    \end{enumerate}
+\end{definition}
+From now on we will restrit oursekves to commutative rings for the rest of the semester. 
+\end{document}
+
+
+
+
+
+ 
