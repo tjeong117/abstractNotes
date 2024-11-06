@@ -1,0 +1,266 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz} 
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+
+% Define a new color for the example box
+
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Example,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{RINGS}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{prime elemnets unique factorization domains.}
+
+\underline{exercise}
+show that the field of fractions of $\mathbb{Z}(i)$ is $\mathbb{Q}[i]$ 
+
+\begin{definition}
+    \begin{enumerate}
+        \item A non-zero element in $x \in R - R^*$ Has a factorization into irreducible element if $\exists $ irreducible elements $$p_1, p_2, \dots, p_n \in R$$ such that $x = p_1p_2 \dots p_n$
+        \item We say x has a \underline{unique } factorization into irreducible elements if for any other irreducieble factorization $$x = q_1q_2 \dots q_n$$  Every $p_i, i = 1, \dots n$ divides some $q_j$ for some $j = 1, \dots, m$
+        \item[remark] Since $q_i$ is irreducible, $q_i \mid q_j$ implies $q_j = u p_i$ for some $u \in R^*$ therefore n = m
+    \end{enumerate}
+
+
+\end{definition}
+
+\begin{definition}
+    A domain $R$ such that every nonzero element in $R - R^*$ has a unique facrotization into irreducible elements is called a \underline{unique factorization domain UFD} 
+
+
+\end{definition}
+\begin{definition}
+    A Nonzero element $p \in R- R^*$ is called a \underline{prime element} if $p \mid xy \rightarrow p \mid x \vee  p \mid y$ 
+    
+\end{definition}
+\underline{exercise} If p is prime and $p \mid x_1x_2 \dots x_n, $ then $p \mid x_1$ for some $i = 1 \dots ,n$ 
+
+
+
+
+
+\begin{proposition}(3.5.2) \leavevmode \\ 
+    A prime element is irreducible
+    h
+    
+\end{proposition}
+\begin{proof}
+    let $p \in R - R^*$ be prime \\ If $p \mid xy$, then $p \mid x$ or $p \mid y$ \\  wlog $p \mid x$
+    \\ 
+    Then $x = rp$ for some $r \in R$ \\ 
+    Then $ p = rpy$ AND since R is a domain we can cancel. thus $1 = ry$ \\ 
+    Hence, $y$ is a unit so p is irreducible 
+\end{proof}
+\underline{example} 
+\begin{align*}
+    &\mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} | a, b \in \mathbb{Z}\} \subset \mathbb{C} \\ 
+    & 6 = (1 - \sqrt{-5})(1 + \sqrt{5}) \\ 
+    &\text{Claim: } 2 \in \mathbb{Z}[\sqrt{-5}] \text{ is irreducible but no prime}
+\end{align*}
+\begin{proof}
+    1. 2 is not prime: \\ 
+    $2 \mid (1 - \sqrt{-5})(1 + \sqrt{5})$ but 2 does \underline{not} divide $1 - \sqrt{-5}$ nor $1 + \sqrt{-5}$ \\ 
+    since $\frac{1}{2} \pm \frac{\sqrt{-5}}{2} \not \in \mathbb{Z}[\sqrt{-5}]$ \\
+    2. 2 is irreducible \begin{align*}
+        &N : \mathbb{Z}[\sqrt{-5}] \rightarrow \mathbb{N } \\ 
+        &N(z) = z\bar{z} \\ 
+        &N (a + b\sqrt{-5}) = a^2 + 5b^2
+    \end{align*}
+    $z \in \mathbb{Z}[\sqrt{-5}]^* \leftrightarrows N(z) = 1$ \\ 
+    Then $a + b \sqrt{-5}$ is a unit $\leftrightarrows a = \pm 1, b = 0$ \\ 
+    Let \begin{align*}
+        2 & = xy \\ 
+        & \text{ where }  x = a + b \sqrt{-5} \\ 
+        &y = c + d \sqrt{-5}\\ 
+        \text{ Then } N(2) &= 4 = N(x) N(y) \\ 
+        & = (a^2 + 5b^2) (c^2 + 5d^2) \\ 
+        & = a^2c^2 + 5a^2d^2 + 5b^2c^2 + 25 b^2 d^2 \\ 
+        &\text{therefore, } \\ 
+        & 4 =a^2c^2 \text{ and } b = d= 0 \\ 
+        & ac = \pm 2 \text{ so a or c is } \pm 1
+    \end{align*}
+    So x, or y is a unit
+\end{proof}
+
+\section{principle ideal domains and UFD}
+Goal: we will show that every PID is a UFD  (the converse is not true ) \\ 
+\underline{example } $\mathbb{R}[x,y] = \{\text{polynomials in x and y with real coefficients}\}$ is a UFD but is \underline{not } a PID
+$$I = <x,y>$$ is not principal
+
+\begin{lemma}[3.5.5]
+
+    Let $R$ be a PID and $r \in R$ a non zero element, Then r has an irreducible factorization. 
+
+\end{lemma}
+    
+        Claim: IF $<a_1> \subseteq <a_2> \subseteq \dots \in R$ where R is a PID, Then $$\exists N \in \mathbb{N}$$ such that $<a_i> = <a_{i+1}> \forall i > N$ 
+    \begin{proof}[proof of claim] \leavevmode \\ 
+        in the HW we shouwed that the $$\Cup_{i=1}^{\infty} <a_i> $$ is an ideal  \\ since R is a PID,$$\Cup_{i=1}^{\infty} <a_i>  = <d> $$ for some $d \in R$ \\ 
+        Thus $d \in <a_N>$ for some $N$ , and so $<d> \subseteq <a_N>$ and hence $<a_i> = <d>$ for $i \geq N$  \\ 
+        Suppsoe $r \in R - R^*$ is a non zero element which is not a product of irreducible.  then \\ 
+        $$r = a_1b_1, a_1, b_1 \not \in R^*$$ 
+        where at least one of $a_1, b_1$ is not a product of irreducibles. \\ 
+        WLOG $a_1$ is not a product of irreducibles. \\ Then $a_1 = a_2b_2, a_2,b_2 \not \in R^*$  where at least of $a_2,b_2$ is not a product of irreducibles .. 
+        \\ 
+        Then 
+        $$<R> \subsetneq <a_1> \subsetneq <a_2> \subsetneq <a_3> \subsetneq \dots $$ which contradicts the claim hence rm ust have an irreducible factorization.
+
+    \end{proof}
+    \begin{proposition}[3.5.6] \leavevmode\\ 
+        suppose R is a PID that is not a field. An ideal $<x> \subset R$ is a Maximal Ideal IFF x is irreducible. 
+
+    \end{proposition}
+    \begin{proof}
+        \begin{enumerate}
+            \item $ \rightarrow$ Assume $<x>$ is a maximal and $x = ab$, we want to show that a or b is a unit. \begin{align*}
+                &\text{ Assume neither } a \text{ or } b \text{ is a unit } \\ 
+                &\text{Then } <x> \subsetneq <a> \text{ since } b \text{ is not a unit} \\ 
+                &<x> \subsetneq <b> \text{ since } a \text{ is not a unit}
+            \end{align*}
+            contradicting maximaility of $<x>$ hence a or b must be a unit 
+            \item $\leftarrow$ Suppose $x$ is irreducible. \begin{align*}
+                &\text{IF } <x> \subseteq <y> \text{ then } \\ 
+                &x = \lambda y  \text { for some } \lambda \in R \\ 
+                &\text{since } x \text{ is irreducible } \\ 
+                &\lambda \text{ or } y \text{ is a unit} \\ 
+                &\text{If } \lambda \text{ is a unit, then } <x> = <y> \\ 
+                &\text{If } y \text{ is a unit, } <y> = K \\ 
+                &\text{Hence  } <x> \text{ is maximal. }
+            \end{align*}
+        \end{enumerate}
+
+
+    \end{proof}
+
+    \begin{theorem}[3.5.7]
+        A PID R is a UFD 
+        
+    \end{theorem}
+    \begin{proof}
+        By lemma 3.5.5 since R is  PID, irreducible factorization exists. We need to show uniqueness. We will show that irreducibility elemens are prime and then apply Prop 3.5.3 to show that R is a UFD 
+        
+    \end{proof}
+
+    \begin{proposition}[3.5.3]
+        Let $R$ be a ring where every non-zero element $r \in R - R^*$ has a factorization into irreducibles. Every irreducible element is a prime element in R iff R is a UFD
+        
+    \end{proposition}
+    \begin{proof}
+        \begin{enumerate}
+            \item $\rightarrow$ Suppose $x \in R - R^*$ with $x =p_1p_2 \dots p_n = q_1q_2 \dots q_m$ wher pi qj are irreducible. 
+            \item $\leftarrow $ Let R be a ufd and $p \in R$ irreducible. Suppose $p \mid xy$ since R is a UFD, x and y each have unieque factorizations and by uniqueness one of these factorizations must have an irreducible factor that is divisible by p. \\ Hence $p \mid x$ or $p \mid y$ so p is prime.            
+        \end{enumerate}
+    \end{proof}
+
+    
+    To see that every PID is a UFD we will show that irreducible elements are prime and apply prop 3.5.3 to show R is a UFD. \\ 
+    Let $p \in R$ p irreducible, with $p \mid ab $ and $p \nmid a$ \\ WTS 
+    $p\mid b$  \\ since $p \nmid a, a \not \in <p> $  \\ 
+    Then, $<p> \subsetneq <a, p>$ \\ Since $p$ is irreducible, $<p> $ is maximal by te earlier prop 3.5.6 \\ Hence $<a, p> = R$ so exists $x,y \in R $ so that xa + yp = 1 
+
+    
+    Multiplying both sides by b: $xab + ypb = b$  \\ 
+    Since $p \mid ab$, it follows that $p \mid b$   
+\end{document}
+
+
+
+
+
+
+ 

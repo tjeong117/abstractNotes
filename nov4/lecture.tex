@@ -1,0 +1,244 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz} 
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+
+% Define a new color for the example box
+
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Example,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{RINGS}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Cosets}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{RINGS}
+Q: Given a ring R, is there a field F such that $R \subseteq F$ ?\\
+ex. $\mathbb{Z} \subseteq \mathbb{Q}$ \\ 
+\underline{the field of Fractions } \\ 
+Q: How do we build $\mathbb{Q}$ from $\mathbb{Z}$
+$$\frac{p}{q} \in \mathbb{Q}, p \in \mathbb{Z}, q \in \mathbb{Z} \backslash \{0\} $$
+$$\mathbb{Q} = \mathbb{Z} \times (\mathbb{Z} - \{0\}) / \sim$$
+$(p, q) \sim (r,s)$ if $ps =qr$
+More generally, for a domain $R$ consider \begin{align*}
+    & R \times (R - \{0\}) \\ 
+    &  \text{ and define an equivalence relation} \\ 
+    &(a, s) \sim (b,t) \text{ iff } at = sb \\ 
+\end{align*}
+\underline{exercise } Check that $\sim$ is an equivalence relation. 
+\\ 
+define the \underline{field of fractions } Q of a domain R as $Q = R \times ( R - \{0\} ) / \sim $ \\ 
+define $(a,s) = \frac{a}{s}$
+\\ 
+\underline{Exercise}: Q is a ring with operations: 
+\begin{align*}
+    &\frac{a}{s} + \frac{b}{t} = \cfrac{at + bs}{st} \text{ or } (a,s) + (b,t) = (at + bs, st)\\
+    &\frac{a}{s} \cdot \frac{b}{t} = \cfrac{ab}{st}
+\end{align*}
+
+
+\begin{enumerate}
+    \item additive identity in Q is $\cfrac{0}{1} = \cfrac{0}{s} \text{ , } \forall s \in R - \{0\}$ 
+    \item multiplication in Q is $1 = \cfrac{1}{1} = \cfrac{s}{s}  \text{ , } \forall s \in R - \{0\}$
+\end{enumerate}
+
+\begin{lemma} \leavevmode \\ 
+    Q is a field
+\end{lemma}
+\begin{proof} \leavevmode \\
+    If $\cfrac{a}{s} \not = 0$, then $a \not= 0$ \\ 
+    and then $\cfrac{s}{a} \cdot \cfrac{a}{s} = 1$
+\end{proof}
+
+
+
+\underline{Exercise}
+How to define this injective ring homomorphisms \\ 
+$i: R \to Q$ , and $i(a) = \cfrac{a}{1}$ 
+
+\begin{proposition}[3.4.1]\leavevmode \\ 
+    Let $R$ be a domain with field of fractions $Q$. Let $L$ be a field and let $$\varphi: R \to L$$ be an injectivre ring homomorphisms, 
+    then, $\exists!$ injective ring homomorphism $$\bar{\varphi}: Q \to L $$ such that $\bar{\varphi} \cdot i = \varphi$ 
+    \begin{tikzcd}
+        R \arrow[r, "i"] \arrow[rd, "\varphi"'] & Q \arrow[d, "\exists! \bar{\varphi}"] \\
+        & L
+    \end{tikzcd}
+
+   
+\end{proposition}
+
+    \underline{EX} 
+    \begin{align*}
+        &R = \mathbb{Z} \\ 
+        &Q = \mathbb{Q} \\ 
+        &L = \mathbb{R} 
+    \end{align*}
+
+
+    \begin{proposition}[3.4.2 COROLLARY not prop] \leavevmode \\ 
+        Let $R$ be a domain contained in a field $L$. The smallest subfield in $L$ containing $R$ is \\ 
+        $$K = \{as^{-1} | a \in R, s \in R - \{0\}\} $$
+        The field of fractino is isomorphic to K. 
+    \end{proposition}
+
+    \begin{proof}
+        \leavevmode \\ 
+        Let $a, b \in R$ and $s, t \in R -\{0\}$ \\ 
+        Then $(as^{-1})(bt^{-1}) = abs^{-1}t^{-1}$ \\ 
+        And $as^{-1} + bt^{-1} = (at + bs) (st)^{-1}$ \\ 
+        and $(as^{-1})^{-1} = sa^{-1} $ if $ a\not = 0$ \\ 
+        Thus $K$ is a subfield of $L$ \\ 
+        Note that any subfield of L containing R must contain K, and we have $a \in R, s^{-1} \forall s \in R - \{0\}$ \\ 
+
+
+Let $Q$ be the field of fractions of R and ocntains the injection $R \to L$ sending $r \in R$ to $r \in L$ \\
+    By Proposition (3.4.1) $\bar{\varphi }(\frac{a}{s}) = as^{-1}$ is an injective homomorphism.
+and is clearly injective onto K. \\ 
+
+
+
+
+    \end{proof}
+
+\underline{Sket Proof of Proposition}
+\\ 
+since $\varphi \cdot i = \varphi$ we must have for $s \in R - \{0\}$, \begin{align*}
+    1 &= \bar{\varphi } (1) \\ 
+    & = \bar{\varphi}(\frac{s}{1} \cdot \frac{1}{s})  \\ 
+    & = \bar{\varphi}(\frac{s}{1}) \cdot \bar{\varphi}(\frac{1}{s}) \\
+    & = \bar{\varphi}(i(s)) \cdot \bar{\varphi}(\frac{1}{s}) \\ 
+    & = \bar{\varphi}(s) \cdot \bar{\varphi}(\frac{1}{s})
+    \end{align*}
+Hence 
+$$\bar{\varphi}(\frac{a}{s}) = \bar{\varphi}(\frac{a}{1})\bar{\varphi}(\frac{1}{s}) = \varphi(a) \varphi(s)^{-1}$$
+We need to check $\bar{\varphi}$ is well-defined: \\
+if $\frac{a}{s} = \frac{b}{t}$ then $at = sb$ , and so \\ 
+$\varphi(a) \varphi(t) = \varphi(s) \varphi(b)$ and so \\ 
+$\varphi(a) \varphi(s )^{-1} = \varphi(b) \varphi(t)^{-1} $
+
+i.e. $\bar{\varphi(\frac{a}{s})} = \bar{\varphi(\frac{b}{t})}$
+
+\underline{exercise}
+Check that $\bar{\varphi} $ is a ring homomorphism and injective 
+
+
+Plans for the rest of the semester: Given a ring R, if R is a field, every non-zero element has a multi. inverse \\ 
+If R is a domain, we can build its field of fractions. 
+\\ 
+Q: What properites of $\mathbb{Z}$ Hold in other rings? 
+\\ 
+Let R be a ring \begin{enumerate}
+    \item Can we factor elements in R? 
+    \item Are factorizations unique? 
+    \item Is there a notion of "prime" in R? 
+    \item Does the division algorithm work in r do we have unique remainder
+    
+\end{enumerate}
+
+
+Assume R is a domain for the next few classes
+\underline{Factoring in R} 
+Deifine: let $x, z \in R$ if $x = ry$ for some $r \in R$ we say y is a divisor of $x$  denoted $y \mid x$
+
+ 
+Notes if R is a PID then for any a,b $\in R, \exists d$  such that $$<a, b> = \{\lambda_1 a + \lambda_2 b | \lambda_1, \lambda_2 \in R \}$$
+\underline{exercise} If R is a PID then this d is exactly the GCD of a and b
+\end{document}
+
+
+
+
+
+ 

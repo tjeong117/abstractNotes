@@ -1,0 +1,3 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}prime elemnets unique factorization domains.}{3}{section.1}%
+\contentsline {section}{\numberline {2}principle ideal domains and UFD}{4}{section.2}%
