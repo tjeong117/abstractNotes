@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.31)  9 SEP 2024 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.31)  11 SEP 2024 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -496,29 +496,29 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 Package thmtools Info: Key `name' (with value `Theorem')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmsty' on input line 32.
+(thmtools)             that uses `style=thmsty' on input line 33.
 \c@theorem=\count305
 Package thmtools Info: Key `name' (with value `Definition')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmsty' on input line 37.
+(thmtools)             that uses `style=thmsty' on input line 38.
 \c@definition=\count306
 Package thmtools Info: Key `name' (with value `Proposition')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prosty' on input line 41.
+(thmtools)             that uses `style=prosty' on input line 42.
 Package thmtools Info: Key `name' (with value `Proof')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prosty' on input line 46.
+(thmtools)             that uses `style=prosty' on input line 47.
 Package thmtools Info: Key `name' (with value `Axiom')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prcpsty' on input line 50.
+(thmtools)             that uses `style=prcpsty' on input line 51.
 Package thmtools Info: Key `name' (with value `Lemma')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prcpsty' on input line 54.
+(thmtools)             that uses `style=prcpsty' on input line 55.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count307
@@ -526,24 +526,24 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 ) (./lecture.aux)
 \openout1 = `lecture.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count308
@@ -597,7 +597,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 74.
+Package hyperref Info: Link coloring OFF on input line 75.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -607,18 +607,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count314
 )
-LaTeX Info: Redefining \ref on input line 74.
-LaTeX Info: Redefining \pageref on input line 74.
-LaTeX Info: Redefining \nameref on input line 74.
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
  (./lecture.out) (./lecture.out)
 \@outlinefile=\write4
 \openout4 = `lecture.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -628,45 +628,45 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `lecture.toc'.
 
  [2]
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 101.
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 102.
 
-Overfull \hbox (22.3298pt too wide) in paragraph at lines 105--107
+Overfull \hbox (22.3298pt too wide) in paragraph at lines 106--108
 []\OT1/cmr/m/n/10 Since cm-po-si-tion in G is as-so-cia-tive, $(\OML/cmm/m/it/10 g[]N\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 g[]N\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 g[]N\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 g[]N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]Ng[]N\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 g[]N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]g[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 N \OT1/cmr/m/n/10 =
  []
 
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 110.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 111.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 157--159
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
 
-Overfull \hbox (127.03275pt too wide) in paragraph at lines 186--190
+Overfull \hbox (127.03275pt too wide) in paragraph at lines 187--191
 []\OT1/cmr/m/n/10 example: re-call $\OML/cmm/m/it/10 D[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e; r[]; r[]; s[]; s[]; s[]\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 aka sym-me-tries of a tri-an-gle and $\OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2)\OMS/cmsy/m/n/10 g$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--190
+Underfull \hbox (badness 10000) in paragraph at lines 187--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--202
+Underfull \hbox (badness 10000) in paragraph at lines 199--203
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--225
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
 
  []
 
@@ -683,7 +683,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  83i,13n,80p,486b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on lecture.pdf (5 pages, 162146 bytes).
+Output written on lecture.pdf (5 pages, 162101 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  108 compressed objects within 2 object streams
